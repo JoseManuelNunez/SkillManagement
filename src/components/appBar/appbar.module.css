@@ -1,0 +1,18 @@
+.appBarContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-shadow: 0px 5px 10px lightblue;
+}
+
+.title {
+    font-size: xx-large;
+    padding: 0 20px;
+}
+
+.actions {
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+}
