@@ -1,0 +1,152 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Juan Pérez",
+      "position": "Frontend Developer",
+      "skills": [
+        {
+          "skillId": "1",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "2",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "5d83e7cf-6a85-4656-9ad5-6d17768a46c5",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "3",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "4",
+          "level": "Basico"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "María García",
+      "position": "Backend Developer",
+      "skills": [
+        {
+          "skillId": "3",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "4",
+          "level": "Intermedio"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Carlos López",
+      "position": "Fullstack Developer",
+      "skills": [
+        {
+          "skillId": "1",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "3",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "5",
+          "level": "Intermedio"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "1",
+      "name": "JavaScript",
+      "description": "Lenguaje de programación utilizado principalmente para el desarrollo web."
+    },
+    {
+      "id": "2",
+      "name": "React.js",
+      "description": "Librería de JavaScript para construir interfaces de usuario."
+    },
+    {
+      "id": "3",
+      "name": "Node.js",
+      "description": "Entorno de ejecución de JavaScript del lado del servidor."
+    },
+    {
+      "id": "4",
+      "name": "Express.js",
+      "description": "Framework para Node.js que facilita la creación de aplicaciones web y APIs."
+    },
+    {
+      "id": "5d83e7cf-6a85-4656-9ad5-6d17768a46c5",
+      "name": "SQL",
+      "description": "base de datos"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "name": "Project A",
+      "description": "Desarrollo de una aplicación web para la gestión de inventarios.",
+      "requiredSkills": [
+        {
+          "skillId": "1",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "2",
+          "level": "Básico"
+        }
+      ],
+      "assignedEmployees": [
+        "1"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Project B",
+      "description": "Implementación de un sistema backend para procesamiento de datos.",
+      "requiredSkills": [
+        {
+          "skillId": "3",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "4",
+          "level": "Intermedio"
+        }
+      ],
+      "assignedEmployees": [
+        "2"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Project C",
+      "description": "Desarrollo de una plataforma fullstack para e-commerce.",
+      "requiredSkills": [
+        {
+          "skillId": "1",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "3",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "5",
+          "level": "Intermedio"
+        }
+      ],
+      "assignedEmployees": [
+        "3"
+      ]
+    }
+  ]
+}

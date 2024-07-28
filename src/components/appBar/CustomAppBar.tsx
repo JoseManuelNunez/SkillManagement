@@ -3,7 +3,16 @@ import SearchIcon from "@mui/icons-material/Search";
 import style from "./appbar.module.css";
 import styled from "styled-components";
 
-export const CustomAppBar = ({title, placeholder}:{title:string, placeholder:string}) => {
+
+
+interface IProps {
+  title: string
+  placeholder: string
+  searchValue: string
+  setSearchValue: React.Dispatch<React.SetStateAction<string>>
+}
+
+export const CustomAppBar = ({title, placeholder, searchValue, setSearchValue}:IProps) => {
   const CostomInput = styled("input")({
     backgroundColor: "#F9F9F9",
     borderRadius: 20,
@@ -25,7 +34,7 @@ export const CustomAppBar = ({title, placeholder}:{title:string, placeholder:str
           <SearchIcon
             sx={{ position: "relative", left: "10px", top: "40px" }}
           />
-          <CostomInput placeholder={placeholder} />
+          <CostomInput value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder={placeholder} />
         </div>
         <AccountCircle color="primary" sx={{ fontSize: 50, marginTop: 3 }} />
       </div>

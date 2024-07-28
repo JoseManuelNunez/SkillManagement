@@ -1,5 +1,4 @@
 import {
-  Button,
   Paper,
   Table,
   TableBody,
@@ -14,13 +13,30 @@ import {
   StyledTableRow,
 } from "../../../utils/customComponents/tables/StyledTables";
 import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
+import { useContext, useState } from "react";
+import { FormDiaglog } from "../../dialog/FormDiaglog";
+import { Context } from "../../../context/Context";
+import { ISkill } from "../../../context/types";
+import { EditDialog } from "../../dialog/EditDialog";
 
 export const InventarioSkills = () => {
+  const { skills, getSkill } = useContext(Context);
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  const deleteSkill = async (id:string) => {
+    await fetch(`http://localhost:3000/skills/${id}`, {
+      method: "DELETE"
+  }).then(() => {
+      getSkill()
+  })
+  }
+
   return (
     <main>
       <header>
         <CustomAppBar
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
           title="Inventario de Skills"
           placeholder="Busca por habilidad..."
         />
@@ -36,18 +52,17 @@ export const InventarioSkills = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {[1, 1, 1, 1].map((index) => (
-                <StyledTableRow key={index}>
+              {skills.map((skill: ISkill) => (
+                <StyledTableRow key={skill.id}>
                   <StyledTableCell component="th" scope="row">
-                    loren
+                    {skill.name}
                   </StyledTableCell>
                   <StyledTableCell align="center">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Ratione deserunt modi...{" "}
+                    {skill.description}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    <DeleteIcon />
-                    <EditIcon />
+                    <DeleteIcon onClick={() => deleteSkill(skill.id)}/>
+                    <EditDialog skill={skill}/>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
@@ -55,13 +70,7 @@ export const InventarioSkills = () => {
           </Table>
         </TableContainer>
       </section>
-      <Button
-        variant="contained"
-        color="success"
-        sx={{ float: "right", mr: 10, mt: 2 }}
-      >
-        Crear Nueva Skill
-      </Button>
+      <FormDiaglog />
     </main>
   );
 };

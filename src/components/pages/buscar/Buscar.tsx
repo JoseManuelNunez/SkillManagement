@@ -14,12 +14,24 @@ import {
 import style from "./buscar.module.css";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
+import { useContext, useState } from "react";
+import { Context } from "../../../context/Context";
+import { ISkill } from "../../../context/types";
 
 export const Buscar = () => {
+  const {skills} = useContext(Context)
+  const [searchValue, setSearchValue] = useState<string>("");
+
+
   return (
     <main>
       <header>
-        <CustomAppBar title="Empleados" placeholder="Busca por habilidad..." />
+        <CustomAppBar
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          title="Empleados"
+          placeholder="Busca por habilidad..."
+        />
       </header>
       <section className={style.dataTableSection}>
         <TableContainer component={Paper} sx={{ width: "90%", mt: 10 }}>
@@ -33,19 +45,34 @@ export const Buscar = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {[1, 1, 1, 1].map((index) => (
-                <StyledTableRow key={index}>
-                  <StyledTableCell component="th" scope="row">
-                    loren
-                  </StyledTableCell>
-                  <StyledTableCell>loren</StyledTableCell>
-                  <StyledTableCell align="right">loren</StyledTableCell>
-                  <StyledTableCell align="right">
-                    <DeleteIcon />
-                    <EditIcon />
-                  </StyledTableCell>
-                </StyledTableRow>
-              ))}
+              {searchValue ? (
+                <>
+                  {skills.filter((skill: ISkill) => skill.name.includes(searchValue)).map((skill) => (
+                    <StyledTableRow key={skill.id}>
+                      <StyledTableCell component="th" scope="row">
+                        loren
+                      </StyledTableCell>
+                      <StyledTableCell>loren</StyledTableCell>
+                      <StyledTableCell align="right">loren</StyledTableCell>
+                      <StyledTableCell align="right">
+                        <DeleteIcon />
+                        <EditIcon />
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  ))}
+                </>
+              ) : (
+                <>
+                  <StyledTableRow>
+                    <StyledTableCell></StyledTableCell>
+                    <StyledTableCell align="center"></StyledTableCell>
+                    <StyledTableCell align="center">
+                      Busca por habilidades
+                    </StyledTableCell>
+                    <StyledTableCell align="right"></StyledTableCell>
+                  </StyledTableRow>
+                </>
+              )}
             </TableBody>
           </Table>
         </TableContainer>
