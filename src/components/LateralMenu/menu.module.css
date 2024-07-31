@@ -4,6 +4,10 @@
     flex-direction: row;
 }
 
+.menuContainerInLogin {
+    display: none;
+}
+
 .menuContainer {
     width: 15%;
     height: 100vh;
@@ -42,4 +46,8 @@
     height: 100vh;
 }
 
+.AppContainerInLogin {
+    width: 100%;
+    height: 100vh;
+}
 

@@ -17,6 +17,7 @@ import { useContext, useState } from "react";
 import { RenderSkill } from "../../renderSkill/RenderSkill";
 import { Context } from "../../../context/Context";
 import { SelectDialog } from "../../dialog/SelectDialog";
+import Swal from "sweetalert2";
 
 
 
@@ -25,6 +26,28 @@ export const Perfil = () => {
   const [searchValue, setSearchValue] = useState<string>('');
 
 
+  const handleSureDelete = (id:string) => {
+    return (
+      Swal.fire({
+        title: "¿Estas seguro?",
+        text: "¿Seguro que quieres remover esta habilidad?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, estoy seguro!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          removeEmployeeSkill(id)
+          Swal.fire({
+            title: "Removida!",
+            text: "La habilidad a sido Removida de correctamente!",
+            icon: "success"
+          });
+        }
+      })
+    )
+  }
 
   if (employee.name === undefined) return <></>;
   return (
@@ -38,7 +61,7 @@ export const Perfil = () => {
         />
       </header>
       <section className={style.dataTableSection}>
-        <TableContainer component={Paper} sx={{ width: "90%", mt: 10 }}>
+        <TableContainer component={Paper} sx={{ width: "90%", mt: 10, maxHeight: 680  }}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead>
               <TableRow>
@@ -49,7 +72,7 @@ export const Perfil = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {employee.skills.map((skill) => (
+              {employee.skills.filter((s) => s).map((skill) => (
                 <StyledTableRow key={skill.skillId}>
                   <StyledTableCell component="th" scope="row">
                     <RenderSkill
@@ -67,7 +90,7 @@ export const Perfil = () => {
                     {skill.level}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    <DeleteIcon onClick={() => removeEmployeeSkill(skill.skillId)} />
+                    <DeleteIcon onClick={() => handleSureDelete(skill.skillId)} />
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

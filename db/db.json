@@ -4,60 +4,869 @@
       "id": "1",
       "name": "Juan Pérez",
       "position": "Frontend Developer",
+      "role": "basic",
+      "password": "password123",
       "skills": [
         {
           "skillId": "1",
-          "level": "Avanzado"
+          "level": "Intermedio"
         },
         {
           "skillId": "2",
-          "level": "Intermedio"
-        },
-        {
-          "skillId": "5d83e7cf-6a85-4656-9ad5-6d17768a46c5",
-          "level": "Intermedio"
+          "level": "Avanzado"
         },
         {
           "skillId": "3",
-          "level": "Intermedio"
+          "level": "Básico"
         },
         {
           "skillId": "4",
-          "level": "Basico"
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "5",
+          "level": "Avanzado"
         }
       ]
     },
     {
       "id": "2",
-      "name": "María García",
+      "name": "María López",
       "position": "Backend Developer",
+      "role": "admin",
+      "password": "admin123",
       "skills": [
         {
-          "skillId": "3",
+          "skillId": "6",
+          "level": "Básico"
+        },
+        {
+          "skillId": "7",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "8",
           "level": "Avanzado"
         },
         {
-          "skillId": "4",
+          "skillId": "9",
+          "level": "Básico"
+        },
+        {
+          "skillId": "10",
           "level": "Intermedio"
         }
       ]
     },
     {
       "id": "3",
-      "name": "Carlos López",
+      "name": "Carlos García",
       "position": "Fullstack Developer",
+      "role": "basic",
+      "password": "password456",
       "skills": [
         {
-          "skillId": "1",
-          "level": "Intermedio"
-        },
-        {
-          "skillId": "3",
+          "skillId": "11",
           "level": "Avanzado"
         },
         {
-          "skillId": "5",
+          "skillId": "12",
           "level": "Intermedio"
+        },
+        {
+          "skillId": "13",
+          "level": "Básico"
+        },
+        {
+          "skillId": "14",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "15",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Ana Martínez",
+      "position": "UI/UX Designer",
+      "role": "admin",
+      "password": "design123",
+      "skills": [
+        {
+          "skillId": "16",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "17",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "18",
+          "level": "Básico"
+        },
+        {
+          "skillId": "19",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "20",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Pedro Sánchez",
+      "position": "Project Manager",
+      "role": "admin",
+      "password": "pm123",
+      "skills": [
+        {
+          "skillId": "21",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "22",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "23",
+          "level": "Básico"
+        },
+        {
+          "skillId": "24",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "25",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Laura Torres",
+      "position": "Data Analyst",
+      "role": "basic",
+      "password": "data123",
+      "skills": [
+        {
+          "skillId": "26",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "27",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "28",
+          "level": "Básico"
+        },
+        {
+          "skillId": "29",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "30",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Miguel Gómez",
+      "position": "QA Engineer",
+      "role": "basic",
+      "password": "qa123",
+      "skills": [
+        {
+          "skillId": "31",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "32",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "33",
+          "level": "Básico"
+        },
+        {
+          "skillId": "34",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "35",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Isabel Ruiz",
+      "position": "DevOps Engineer",
+      "role": "admin",
+      "password": "devops123",
+      "skills": [
+        {
+          "skillId": "36",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "37",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "38",
+          "level": "Básico"
+        },
+        {
+          "skillId": "39",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "40",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Jorge Díaz",
+      "position": "Mobile Developer",
+      "role": "basic",
+      "password": "mobile123",
+      "skills": [
+        {
+          "skillId": "41",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "42",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "43",
+          "level": "Básico"
+        },
+        {
+          "skillId": "44",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "45",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Patricia Fernández",
+      "position": "Systems Analyst",
+      "role": "admin",
+      "password": "systems123",
+      "skills": [
+        {
+          "skillId": "46",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "47",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "48",
+          "level": "Básico"
+        },
+        {
+          "skillId": "49",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "50",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Ricardo Moreno",
+      "position": "Network Engineer",
+      "role": "basic",
+      "password": "network123",
+      "skills": [
+        {
+          "skillId": "51",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "52",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "53",
+          "level": "Básico"
+        },
+        {
+          "skillId": "54",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "55",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Cristina Sánchez",
+      "position": "Database Administrator",
+      "role": "admin",
+      "password": "dbadmin123",
+      "skills": [
+        {
+          "skillId": "56",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "57",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "58",
+          "level": "Básico"
+        },
+        {
+          "skillId": "59",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "60",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Andrés Castro",
+      "position": "Cloud Architect",
+      "role": "admin",
+      "password": "cloud123",
+      "skills": [
+        {
+          "skillId": "61",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "62",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "63",
+          "level": "Básico"
+        },
+        {
+          "skillId": "64",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "65",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Beatriz González",
+      "position": "Security Specialist",
+      "role": "admin",
+      "password": "security123",
+      "skills": [
+        {
+          "skillId": "66",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "67",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "68",
+          "level": "Básico"
+        },
+        {
+          "skillId": "69",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "70",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "name": "David Ortiz",
+      "position": "AI Engineer",
+      "role": "basic",
+      "password": "ai123",
+      "skills": [
+        {
+          "skillId": "71",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "72",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "73",
+          "level": "Básico"
+        },
+        {
+          "skillId": "74",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "75",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "Elena Romero",
+      "position": "Blockchain Developer",
+      "role": "basic",
+      "password": "blockchain123",
+      "skills": [
+        {
+          "skillId": "76",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "77",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "78",
+          "level": "Básico"
+        },
+        {
+          "skillId": "79",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "80",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Fernando Vega",
+      "position": "IT Support Specialist",
+      "role": "basic",
+      "password": "itsupport123",
+      "skills": [
+        {
+          "skillId": "81",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "82",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "83",
+          "level": "Básico"
+        },
+        {
+          "skillId": "84",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "85",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "name": "Gloria Méndez",
+      "position": "IT Consultant",
+      "role": "admin",
+      "password": "consultant123",
+      "skills": [
+        {
+          "skillId": "86",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "87",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "88",
+          "level": "Básico"
+        },
+        {
+          "skillId": "89",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "90",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "name": "Héctor Ruiz",
+      "position": "Software Architect",
+      "role": "admin",
+      "password": "architect123",
+      "skills": [
+        {
+          "skillId": "91",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "92",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "93",
+          "level": "Básico"
+        },
+        {
+          "skillId": "94",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "95",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "name": "Inés Vargas",
+      "position": "Product Owner",
+      "role": "admin",
+      "password": "product123",
+      "skills": [
+        {
+          "skillId": "96",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "97",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "98",
+          "level": "Básico"
+        },
+        {
+          "skillId": "99",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "100",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "name": "José Hernández",
+      "position": "Scrum Master",
+      "role": "admin",
+      "password": "scrum123",
+      "skills": [
+        {
+          "skillId": "101",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "102",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "103",
+          "level": "Básico"
+        },
+        {
+          "skillId": "104",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "105",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "name": "Karla Morales",
+      "position": "Technical Writer",
+      "role": "basic",
+      "password": "writer123",
+      "skills": [
+        {
+          "skillId": "106",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "107",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "108",
+          "level": "Básico"
+        },
+        {
+          "skillId": "109",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "110",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "name": "Luis Benítez",
+      "position": "Game Developer",
+      "role": "basic",
+      "password": "game123",
+      "skills": [
+        {
+          "skillId": "111",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "112",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "113",
+          "level": "Básico"
+        },
+        {
+          "skillId": "114",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "115",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "name": "Mariana Navarro",
+      "position": "Robotics Engineer",
+      "role": "basic",
+      "password": "robotics123",
+      "skills": [
+        {
+          "skillId": "116",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "117",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "118",
+          "level": "Básico"
+        },
+        {
+          "skillId": "119",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "120",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "name": "Natalia Salinas",
+      "position": "Sales Engineer",
+      "role": "basic",
+      "password": "sales123",
+      "skills": [
+        {
+          "skillId": "121",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "122",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "123",
+          "level": "Básico"
+        },
+        {
+          "skillId": "124",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "125",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "name": "Oscar Guzmán",
+      "position": "Research Scientist",
+      "role": "admin",
+      "password": "research123",
+      "skills": [
+        {
+          "skillId": "126",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "127",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "128",
+          "level": "Básico"
+        },
+        {
+          "skillId": "129",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "130",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "name": "Paula Álvarez",
+      "position": "Technical Support Specialist",
+      "role": "basic",
+      "password": "support123",
+      "skills": [
+        {
+          "skillId": "131",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "132",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "133",
+          "level": "Básico"
+        },
+        {
+          "skillId": "134",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "135",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "name": "Raúl Gil",
+      "position": "IT Specialist",
+      "role": "admin",
+      "password": "itspecialist123",
+      "skills": [
+        {
+          "skillId": "136",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "137",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "138",
+          "level": "Básico"
+        },
+        {
+          "skillId": "139",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "140",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "name": "Silvia Castillo",
+      "position": "Data Scientist",
+      "role": "admin",
+      "password": "datascience123",
+      "skills": [
+        {
+          "skillId": "141",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "142",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "143",
+          "level": "Básico"
+        },
+        {
+          "skillId": "144",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "145",
+          "level": "Avanzado"
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "name": "Tomás Reyes",
+      "position": "Cybersecurity Analyst",
+      "role": "admin",
+      "password": "cyber123",
+      "skills": [
+        {
+          "skillId": "146",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "147",
+          "level": "Avanzado"
+        },
+        {
+          "skillId": "148",
+          "level": "Básico"
+        },
+        {
+          "skillId": "149",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "150",
+          "level": "Avanzado"
         }
       ]
     }
@@ -84,9 +893,359 @@
       "description": "Framework para Node.js que facilita la creación de aplicaciones web y APIs."
     },
     {
-      "id": "5d83e7cf-6a85-4656-9ad5-6d17768a46c5",
+      "id": "5",
+      "name": "PostgreSQL",
+      "description": "Sistema de gestión de bases de datos relacional y orientado a objetos."
+    },
+    {
+      "id": "6",
+      "name": "MongoDB",
+      "description": "Base de datos NoSQL orientada a documentos."
+    },
+    {
+      "id": "7",
+      "name": "TypeScript",
+      "description": "Superset de JavaScript que añade tipado estático."
+    },
+    {
+      "id": "8",
+      "name": "Angular",
+      "description": "Framework para construir aplicaciones web."
+    },
+    {
+      "id": "9",
+      "name": "Vue.js",
+      "description": "Framework progresivo para construir interfaces de usuario."
+    },
+    {
+      "id": "10",
+      "name": "Django",
+      "description": "Framework de alto nivel para el desarrollo web en Python."
+    },
+    {
+      "id": "11",
+      "name": "Flask",
+      "description": "Microframework para el desarrollo web en Python."
+    },
+    {
+      "id": "12",
+      "name": "Ruby on Rails",
+      "description": "Framework para el desarrollo web en Ruby."
+    },
+    {
+      "id": "13",
+      "name": "Spring Boot",
+      "description": "Framework para construir aplicaciones en Java."
+    },
+    {
+      "id": "14",
+      "name": "Hibernate",
+      "description": "Framework para mapeo objeto-relacional en Java."
+    },
+    {
+      "id": "15",
+      "name": "Laravel",
+      "description": "Framework para el desarrollo web en PHP."
+    },
+    {
+      "id": "16",
+      "name": "Symfony",
+      "description": "Framework PHP para el desarrollo de aplicaciones web."
+    },
+    {
+      "id": "17",
+      "name": "ASP.NET",
+      "description": "Framework para el desarrollo web en .NET."
+    },
+    {
+      "id": "18",
+      "name": "Swift",
+      "description": "Lenguaje de programación para aplicaciones iOS y macOS."
+    },
+    {
+      "id": "19",
+      "name": "Kotlin",
+      "description": "Lenguaje de programación para aplicaciones Android."
+    },
+    {
+      "id": "20",
+      "name": "Objective-C",
+      "description": "Lenguaje de programación para aplicaciones iOS y macOS."
+    },
+    {
+      "id": "21",
+      "name": "C#",
+      "description": "Lenguaje de programación para el desarrollo en .NET."
+    },
+    {
+      "id": "22",
+      "name": "Go",
+      "description": "Lenguaje de programación desarrollado por Google."
+    },
+    {
+      "id": "23",
+      "name": "Rust",
+      "description": "Lenguaje de programación enfocado en la seguridad y el rendimiento."
+    },
+    {
+      "id": "24",
+      "name": "Perl",
+      "description": "Lenguaje de programación para procesamiento de texto."
+    },
+    {
+      "id": "25",
+      "name": "PHP",
+      "description": "Lenguaje de programación para el desarrollo web del lado del servidor."
+    },
+    {
+      "id": "26",
       "name": "SQL",
-      "description": "base de datos"
+      "description": "Lenguaje de consulta estructurado para bases de datos."
+    },
+    {
+      "id": "27",
+      "name": "HTML",
+      "description": "Lenguaje de marcado para la creación de páginas web."
+    },
+    {
+      "id": "28",
+      "name": "CSS",
+      "description": "Lenguaje de estilos para diseñar páginas web."
+    },
+    {
+      "id": "29",
+      "name": "Sass",
+      "description": "Extensión de CSS que añade características de programación."
+    },
+    {
+      "id": "30",
+      "name": "LESS",
+      "description": "Preprocesador CSS que extiende sus capacidades."
+    },
+    {
+      "id": "31",
+      "name": "Bootstrap",
+      "description": "Framework CSS para diseño web responsivo."
+    },
+    {
+      "id": "32",
+      "name": "Tailwind CSS",
+      "description": "Framework de utilidades CSS."
+    },
+    {
+      "id": "33",
+      "name": "Webpack",
+      "description": "Empaquetador de módulos JavaScript."
+    },
+    {
+      "id": "34",
+      "name": "Gulp",
+      "description": "Toolkit de automatización para tareas de desarrollo web."
+    },
+    {
+      "id": "35",
+      "name": "Grunt",
+      "description": "Automatizador de tareas JavaScript."
+    },
+    {
+      "id": "36",
+      "name": "Docker",
+      "description": "Plataforma para desarrollar, enviar y ejecutar aplicaciones en contenedores."
+    },
+    {
+      "id": "37",
+      "name": "Kubernetes",
+      "description": "Sistema de orquestación de contenedores."
+    },
+    {
+      "id": "38",
+      "name": "Ansible",
+      "description": "Herramienta de automatización de IT."
+    },
+    {
+      "id": "39",
+      "name": "Terraform",
+      "description": "Herramienta de infraestructura como código."
+    },
+    {
+      "id": "40",
+      "name": "AWS",
+      "description": "Plataforma de servicios en la nube de Amazon."
+    },
+    {
+      "id": "41",
+      "name": "Azure",
+      "description": "Plataforma de servicios en la nube de Microsoft."
+    },
+    {
+      "id": "42",
+      "name": "Google Cloud",
+      "description": "Plataforma de servicios en la nube de Google."
+    },
+    {
+      "id": "43",
+      "name": "Firebase",
+      "description": "Plataforma de desarrollo de aplicaciones móviles y web de Google."
+    },
+    {
+      "id": "44",
+      "name": "Heroku",
+      "description": "Plataforma como servicio para despliegue de aplicaciones."
+    },
+    {
+      "id": "45",
+      "name": "CircleCI",
+      "description": "Plataforma de integración y entrega continua."
+    },
+    {
+      "id": "46",
+      "name": "Jenkins",
+      "description": "Servidor de automatización open-source."
+    },
+    {
+      "id": "47",
+      "name": "Travis CI",
+      "description": "Servicio de integración continua para GitHub."
+    },
+    {
+      "id": "48",
+      "name": "Git",
+      "description": "Sistema de control de versiones distribuido."
+    },
+    {
+      "id": "49",
+      "name": "GitHub",
+      "description": "Plataforma para hospedaje de código Git."
+    },
+    {
+      "id": "50",
+      "name": "Bitbucket",
+      "description": "Repositorio de código fuente basado en Git."
+    },
+    {
+      "id": "51",
+      "name": "Elasticsearch",
+      "description": "Motor de búsqueda y análisis basado en texto completo."
+    },
+    {
+      "id": "52",
+      "name": "GraphQL",
+      "description": "Lenguaje de consulta para APIs."
+    },
+    {
+      "id": "53",
+      "name": "Redis",
+      "description": "Base de datos en memoria usada como almacén de datos clave-valor."
+    },
+    {
+      "id": "54",
+      "name": "Apache Kafka",
+      "description": "Plataforma de procesamiento de flujo distribuido."
+    },
+    {
+      "id": "55",
+      "name": "RabbitMQ",
+      "description": "Sistema de gestión de colas de mensajes."
+    },
+    {
+      "id": "56",
+      "name": "Nginx",
+      "description": "Servidor web y proxy inverso."
+    },
+    {
+      "id": "57",
+      "name": "Apache HTTP Server",
+      "description": "Servidor web HTTP open-source."
+    },
+    {
+      "id": "58",
+      "name": "JIRA",
+      "description": "Herramienta de gestión de proyectos y seguimiento de incidencias."
+    },
+    {
+      "id": "59",
+      "name": "Confluence",
+      "description": "Plataforma de colaboración y gestión de conocimiento."
+    },
+    {
+      "id": "60",
+      "name": "Postman",
+      "description": "Herramienta para pruebas de APIs."
+    },
+    {
+      "id": "61",
+      "name": "Swagger",
+      "description": "Herramienta para diseñar y documentar APIs."
+    },
+    {
+      "id": "62",
+      "name": "GraphQL",
+      "description": "Lenguaje de consulta para APIs que permite obtener los datos exactos requeridos."
+    },
+    {
+      "id": "63",
+      "name": "Kibana",
+      "description": "Herramienta de visualización de datos para Elasticsearch."
+    },
+    {
+      "id": "64",
+      "name": "Logstash",
+      "description": "Pipeline de procesamiento de datos server-side."
+    },
+    {
+      "id": "65",
+      "name": "Prometheus",
+      "description": "Sistema de monitoreo y alerta open-source."
+    },
+    {
+      "id": "66",
+      "name": "Grafana",
+      "description": "Plataforma de análisis y monitoreo de datos open-source."
+    },
+    {
+      "id": "67",
+      "name": "Jupyter",
+      "description": "Entorno de desarrollo interactivo para notebooks."
+    },
+    {
+      "id": "68",
+      "name": "Pandas",
+      "description": "Biblioteca de Python para análisis y manipulación de datos."
+    },
+    {
+      "id": "69",
+      "name": "NumPy",
+      "description": "Biblioteca de Python para computación científica."
+    },
+    {
+      "id": "70",
+      "name": "MATLAB",
+      "description": "Entorno de programación para análisis numérico y visualización de datos."
+    },
+    {
+      "id": "71",
+      "name": "Scikit-learn",
+      "description": "Biblioteca de Python para aprendizaje automático."
+    },
+    {
+      "id": "72",
+      "name": "TensorFlow",
+      "description": "Plataforma de código abierto para aprendizaje automático."
+    },
+    {
+      "id": "73",
+      "name": "PyTorch",
+      "description": "Biblioteca de Python para aprendizaje profundo."
+    },
+    {
+      "id": "74",
+      "name": "Keras",
+      "description": "API de redes neuronales de alto nivel, escrita en Python."
+    },
+    {
+      "id": "75",
+      "name": "OpenCV",
+      "description": "Biblioteca open-source de visión por computadora."
     }
   ],
   "projects": [
@@ -105,7 +1264,9 @@
         }
       ],
       "assignedEmployees": [
-        "1"
+        "1",
+        "2",
+        "3"
       ]
     },
     {
@@ -123,7 +1284,9 @@
         }
       ],
       "assignedEmployees": [
-        "2"
+        "4",
+        "5",
+        "6"
       ]
     },
     {
@@ -132,20 +1295,218 @@
       "description": "Desarrollo de una plataforma fullstack para e-commerce.",
       "requiredSkills": [
         {
-          "skillId": "1",
-          "level": "Intermedio"
-        },
-        {
-          "skillId": "3",
-          "level": "Avanzado"
-        },
-        {
           "skillId": "5",
           "level": "Intermedio"
+        },
+        {
+          "skillId": "6",
+          "level": "Avanzado"
         }
       ],
       "assignedEmployees": [
-        "3"
+        "7",
+        "8",
+        "9"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Project D",
+      "description": "Creación de una aplicación móvil para servicios financieros.",
+      "requiredSkills": [
+        {
+          "skillId": "7",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "8",
+          "level": "Básico"
+        }
+      ],
+      "assignedEmployees": [
+        "10",
+        "11",
+        "12"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Project E",
+      "description": "Desarrollo de un sistema de gestión de recursos humanos.",
+      "requiredSkills": [
+        {
+          "skillId": "9",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "10",
+          "level": "Avanzado"
+        }
+      ],
+      "assignedEmployees": [
+        "13",
+        "14",
+        "15"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Project F",
+      "description": "Implementación de una plataforma de aprendizaje online.",
+      "requiredSkills": [
+        {
+          "skillId": "11",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "12",
+          "level": "Básico"
+        }
+      ],
+      "assignedEmployees": [
+        "16",
+        "17",
+        "18"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Project G",
+      "description": "Desarrollo de una aplicación de salud y bienestar.",
+      "requiredSkills": [
+        {
+          "skillId": "13",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "14",
+          "level": "Avanzado"
+        }
+      ],
+      "assignedEmployees": [
+        "19",
+        "20",
+        "21"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Project H",
+      "description": "Creación de una plataforma de análisis de datos.",
+      "requiredSkills": [
+        {
+          "skillId": "15",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "16",
+          "level": "Básico"
+        }
+      ],
+      "assignedEmployees": [
+        "22",
+        "23",
+        "24"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Project I",
+      "description": "Implementación de un sistema de automatización de marketing.",
+      "requiredSkills": [
+        {
+          "skillId": "17",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "18",
+          "level": "Avanzado"
+        }
+      ],
+      "assignedEmployees": [
+        "25",
+        "26",
+        "27"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Project J",
+      "description": "Desarrollo de una plataforma de gestión de proyectos.",
+      "requiredSkills": [
+        {
+          "skillId": "19",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "20",
+          "level": "Básico"
+        }
+      ],
+      "assignedEmployees": [
+        "28",
+        "29",
+        "30"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Project K",
+      "description": "Creación de un sistema de gestión de contenidos.",
+      "requiredSkills": [
+        {
+          "skillId": "21",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "22",
+          "level": "Avanzado"
+        }
+      ],
+      "assignedEmployees": [
+        "1",
+        "3",
+        "5"
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Project L",
+      "description": "Implementación de una plataforma de reserva de viajes.",
+      "requiredSkills": [
+        {
+          "skillId": "23",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "24",
+          "level": "Básico"
+        }
+      ],
+      "assignedEmployees": [
+        "7",
+        "9",
+        "11"
+      ]
+    },
+    {
+      "id": "13",
+      "name": "Project M",
+      "description": "Desarrollo de un sistema de gestión de ventas.",
+      "requiredSkills": [
+        {
+          "skillId": "25",
+          "level": "Intermedio"
+        },
+        {
+          "skillId": "26",
+          "level": "Avanzado"
+        }
+      ],
+      "assignedEmployees": [
+        "13",
+        "15",
+        "17"
       ]
     }
   ]

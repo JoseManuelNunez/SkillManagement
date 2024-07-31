@@ -5,15 +5,16 @@ import {
   DialogContent,
   DialogContentText,
   TextField,
-  DialogActions,
+  DialogActions, IconButton,
 } from "@mui/material";
 import React, { useContext } from "react";
 import { ISkill } from "../../context/types";
 import EditIcon from "@mui/icons-material/Edit";
 import { Context } from "../../context/Context";
+import { showBasicAlert } from "../../alerts/alerts";
 
 export const EditDialog = ({ skill }: { skill: ISkill }) => {
-    const { getSkill } = useContext(Context)
+  const { getSkill, employee } = useContext(Context);
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -24,29 +25,32 @@ export const EditDialog = ({ skill }: { skill: ISkill }) => {
     setOpen(false);
   };
 
-  const validateNewSkill = (name: string, description: string): boolean => {
+  const validateSkillChange = (name: string, description: string): boolean => {
     const skillName = name === skill.name;
     const skillDescription = description === skill.description;
-    console.log(!skillName && !skillDescription)
 
     return !skillName || !skillDescription;
   };
 
-  const editSkill = async (name:string, description: string) => {
+  const editSkill = async (name: string, description: string) => {
     await fetch(`http://localhost:3000/skills/${skill.id}`, {
-        method: "PUT",
-        body: JSON.stringify({
-            name,
-            description
-        })
+      method: "PUT",
+      body: JSON.stringify({
+        name,
+        description,
+      }),
     }).then(() => {
-        getSkill()
-    })
-  }
+      showBasicAlert("Skill Actualizada", "La skill a sido actualizada correctamente")
+      getSkill();
+    });
+  };
 
   return (
     <React.Fragment>
-      <EditIcon onClick={handleClickOpen} />
+      <IconButton color="primary" disabled={employee.role !== 'admin'} onClick={handleClickOpen}>
+        
+      <EditIcon  />
+      </IconButton>
 
       <Dialog
         open={open}
@@ -59,11 +63,10 @@ export const EditDialog = ({ skill }: { skill: ISkill }) => {
             const formJson = Object.fromEntries(formData.entries());
             const name = formJson.name;
             const desciption = formJson.description;
-            if (validateNewSkill(name.toString(), desciption.toString())) {
-                editSkill(name.toString(), desciption.toString())
-            }
-            
-            handleClose();
+            if (validateSkillChange(name.toString(), desciption.toString())) {
+              editSkill(name.toString(), desciption.toString());
+              handleClose();
+            } 
           },
         }}
       >

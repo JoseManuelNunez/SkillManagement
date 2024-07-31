@@ -13,7 +13,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ISkill } from "../../context/types";
 
 export const FormDiaglog = () => {
-  const { skills, createNewSkill } = useContext(Context);
+  const { skills, createNewSkill, employee } = useContext(Context);
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -37,6 +37,7 @@ export const FormDiaglog = () => {
         color="success"
         sx={{ float: "right", mr: 10, mt: 2 }}
         onClick={handleClickOpen}
+        disabled={employee.role !== 'admin'}
       >
         Crear Nueva Skill
       </Button>

@@ -5,25 +5,44 @@ import {
   Error404,
   InventarioSkills,
   LateralMenu,
+  Login,
   Perfil,
   Proyectos,
 } from "./components";
 import { Provider } from "./context/Provider";
+import { PrivateContent } from "./components/priveteContent/PrivateContent";
 function App() {
   return (
     <main className="container">
       <BrowserRouter>
-        <Provider>
-          <LateralMenu>
+        <LateralMenu>
+          <Provider>
             <Routes>
-              <Route path="/" element={<Buscar />} />
-              <Route path="/perfil" element={<Perfil />} />
-              <Route path="/inventario-skill" element={<InventarioSkills />} />
-              <Route path="/proyectos" element={<Proyectos />} />
+              <Route path="/" element={
+                <PrivateContent>
+                  <Buscar />
+                </PrivateContent>
+              } />
+              <Route path="/perfil" element={
+                <PrivateContent>
+                  <Perfil />
+                </PrivateContent>
+              } />
+              <Route path="/inventario-skill" element={
+                <PrivateContent>
+                  <InventarioSkills />
+                </PrivateContent>
+              } />
+              <Route path="/proyectos" element={
+                <PrivateContent>
+                  <Proyectos />
+                </PrivateContent>
+              } />
               <Route path="*" element={<Error404 />} />
+              <Route path="/login" element={<Login />} />
             </Routes>
-          </LateralMenu>
-        </Provider>
+          </Provider>
+        </LateralMenu>
       </BrowserRouter>
     </main>
   );

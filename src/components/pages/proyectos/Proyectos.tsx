@@ -16,6 +16,7 @@ import { useContext, useState } from "react";
 import { RenderSkill } from "../../renderSkill/RenderSkill";
 import { Context } from "../../../context/Context";
 import { IProject } from "../../../context/types";
+import { RenderEmployee } from "../../renderEmployee/RenderEmployee";
 
 export const Proyectos = () => {
   const { projects } = useContext(Context);
@@ -32,7 +33,7 @@ export const Proyectos = () => {
         />
       </header>
       <section className={style.dataTableSection}>
-        <TableContainer component={Paper} sx={{ width: "90%", mt: 10 }}>
+        <TableContainer component={Paper} sx={{ width: "90%", mt: 10, maxHeight: 680  }}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead>
               <TableRow>
@@ -40,6 +41,9 @@ export const Proyectos = () => {
                 <StyledTableCell align="center">Descripcion</StyledTableCell>
                 <StyledTableCell align="center">
                   Skills requeridas
+                </StyledTableCell>
+                <StyledTableCell align="center">
+                  Equipo
                 </StyledTableCell>
               </TableRow>
             </TableHead>
@@ -66,6 +70,14 @@ export const Proyectos = () => {
                         </>
                       )
                     )}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {project.assignedEmployees.map((id) => (
+                      <>
+                        <RenderEmployee id={id} key={id} />
+                        <br />
+                      </>
+                    ))}
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

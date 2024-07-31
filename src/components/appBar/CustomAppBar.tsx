@@ -1,9 +1,6 @@
 import { AccountCircle } from "@mui/icons-material";
 import SearchIcon from "@mui/icons-material/Search";
 import style from "./appbar.module.css";
-import styled from "styled-components";
-
-
 
 interface IProps {
   title: string
@@ -13,18 +10,6 @@ interface IProps {
 }
 
 export const CustomAppBar = ({title, placeholder, searchValue, setSearchValue}:IProps) => {
-  const CostomInput = styled("input")({
-    backgroundColor: "#F9F9F9",
-    borderRadius: 20,
-    border: "none",
-    height: 15,
-    width: 350,
-    textAlign: "start",
-    padding: "15px 15px 15px 40px ",
-    boxShadow: "2px 2px 2px 2px rgba(0, 0, 0, 0.35)",
-    marginBottom: 15,
-    zIndex: -999999,
-  });
 
   return (
     <div className={style.appBarContainer}>
@@ -34,7 +19,8 @@ export const CustomAppBar = ({title, placeholder, searchValue, setSearchValue}:I
           <SearchIcon
             sx={{ position: "relative", left: "10px", top: "40px" }}
           />
-          <CostomInput value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder={placeholder} />
+
+           <input type="text" value={searchValue} className={style.customInput} placeholder={placeholder} onChange={((e) => setSearchValue(e.target.value))} />
         </div>
         <AccountCircle color="primary" sx={{ fontSize: 50, marginTop: 3 }} />
       </div>

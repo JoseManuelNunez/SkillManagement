@@ -4,7 +4,7 @@ import {
   TableBody,
   TableContainer,
   TableHead,
-  TableRow,
+  TableRow, IconButton,
 } from "@mui/material";
 import { CustomAppBar } from "../../appBar";
 import style from "./skill.module.css";
@@ -18,9 +18,10 @@ import { FormDiaglog } from "../../dialog/FormDiaglog";
 import { Context } from "../../../context/Context";
 import { ISkill } from "../../../context/types";
 import { EditDialog } from "../../dialog/EditDialog";
+import Swal from "sweetalert2";
 
 export const InventarioSkills = () => {
-  const { skills, getSkill } = useContext(Context);
+  const { skills, getSkill, employee } = useContext(Context);
   const [searchValue, setSearchValue] = useState<string>("");
 
   const deleteSkill = async (id:string) => {
@@ -31,10 +32,34 @@ export const InventarioSkills = () => {
   })
   }
 
+  const handleSureDelete = (id:string) => {
+    return (
+      Swal.fire({
+        title: "¿Estas seguro?",
+        text: "¿Seguro que quieres elimiar esta habilidad?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, estoy seguro!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          deleteSkill(id)
+          Swal.fire({
+            title: "Eliminada!",
+            text: "La habilidad a sido eliminada correctamente!",
+            icon: "success"
+          });
+        }
+      })
+    )
+  }
+
   return (
     <main>
       <header>
         <CustomAppBar
+          key={'holaa'}
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           title="Inventario de Skills"
@@ -42,7 +67,7 @@ export const InventarioSkills = () => {
         />
       </header>
       <section className={style.dataTableSection}>
-        <TableContainer component={Paper} sx={{ width: "90%", mt: 10 }}>
+        <TableContainer component={Paper} sx={{ width: "90%", mt: 10, maxHeight: 680 }}>
           <Table sx={{ minWidth: 700 }} aria-label="customized table">
             <TableHead>
               <TableRow>
@@ -61,7 +86,10 @@ export const InventarioSkills = () => {
                     {skill.description}
                   </StyledTableCell>
                   <StyledTableCell align="right">
-                    <DeleteIcon onClick={() => deleteSkill(skill.id)}/>
+                    <IconButton color='primary' disabled={employee.role !== 'admin'} onClick={() => handleSureDelete(skill.id)}>
+                    <DeleteIcon />
+                      
+                    </IconButton>
                     <EditDialog skill={skill}/>
                   </StyledTableCell>
                 </StyledTableRow>

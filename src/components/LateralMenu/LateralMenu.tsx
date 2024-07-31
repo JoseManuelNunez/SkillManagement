@@ -3,12 +3,13 @@ import PersonIcon from "@mui/icons-material/Person";
 import SearchIcon from "@mui/icons-material/Search";
 import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
 import ApartmentIcon from "@mui/icons-material/Apartment";
-import logo from "../../assets/sm.png";
 import { IListMenu, listMenu } from "../../utils/listMenu";
 import { useNavigate } from "react-router-dom";
+import Button from '@mui/material/Button'
 
 export const LateralMenu = ({ children }: { children: JSX.Element}) => {
   const navegate = useNavigate()
+
 
   const renderIcon = (menu: string) => {
     switch (menu) {
@@ -23,10 +24,14 @@ export const LateralMenu = ({ children }: { children: JSX.Element}) => {
     }
   };
 
+  const inLogin = () => {
+    return window.location.pathname === '/login'
+  }
+
   return (
     <main className={style.mainContainer}>
-      <section className={style.menuContainer}>
-        <img src={logo} className={style.img} alt="sadsad" />
+      <section className={ inLogin() ? style.menuContainerInLogin : style.menuContainer}>
+        <img src='/sm.png' className={style.img} alt="sadsad" />
         <div className={style.menuList}>
           {listMenu.map((menu: IListMenu) => (
             <div
@@ -40,8 +45,11 @@ export const LateralMenu = ({ children }: { children: JSX.Element}) => {
             </div>
           ))}
         </div>
+        <Button sx={{mt: 60}} variant="contained" color="error" onClick={() => [localStorage.removeItem('token'), navegate('/login'), window.location.reload()]}>
+          Cerrar sesion
+        </Button>
       </section>
-      <section className={style.AppContainer}>{children}</section>
+      <section className={inLogin() ? style.AppContainerInLogin : style.AppContainer}>{children}</section>
     </main>
   );
 };

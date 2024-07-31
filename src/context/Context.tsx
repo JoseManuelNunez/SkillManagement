@@ -10,6 +10,14 @@ interface IContext {
     addNewEmployeeSkill: (data: INewSkillEmployee) => void
     removeEmployeeSkill: (id: string) => void
     getSkill: () => void
+    employees: IEmployee[]
+    setSkillFilter: (data: string) => void
+    skillFilter: string
+    nivelFilter: string 
+    setNivelFilter: (data: string) => void
+    addNewEmployeeInProject: (idEmployee: string, idProject: string) => void
+    getEmployee: () => void
+
 }
 
 export const Context = createContext({} as IContext)

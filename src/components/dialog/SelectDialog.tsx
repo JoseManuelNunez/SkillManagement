@@ -93,7 +93,7 @@ export const SelectDialog = () => {
               required
 
             >
-                  <MenuItem value={"Basico"}>Basico</MenuItem>
+                  <MenuItem value={"Básico"}>Básico</MenuItem>
                   <MenuItem value={"Intermedio"}>Intermedio</MenuItem>
                   <MenuItem value={"Avanzado"}>Avanzado</MenuItem>
 
