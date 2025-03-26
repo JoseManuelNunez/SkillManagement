@@ -40,11 +40,11 @@ export const LateralMenu = ({ children }: { children: JSX.Element}) => {
               className={style.menuItem}
               onClick={() => navegate(menu.url)}
             >
-              <div>{renderIcon(menu.name)}</div>
-              <h3>{menu.name}</h3>
+              <div style={window.location.pathname === menu.url ? {color: '#000'} : {color: "#3267AC"}}>{renderIcon(menu.name)}</div>
+              <h3 style={ window.location.pathname === menu.url ? {color: '#3267AC'} : {color: "#3267AC"}}>{menu.name}</h3> 
             </div>
           ))}
-        </div>
+        </div>  
         <Button sx={{mt: 60}} variant="contained" color="error" onClick={() => [localStorage.removeItem('token'), navegate('/login'), window.location.reload()]}>
           Cerrar sesion
         </Button>

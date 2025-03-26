@@ -27,3 +27,8 @@ export interface INewSkillEmployee {
     skillId: string
     level: string
 }
+
+export interface INewSkillProject {
+    skillId: string
+    level: string
+}

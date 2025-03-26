@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 export const StyledTableCell = styled(TableCell)(() => ({
     [`&.${tableCellClasses.head}`]: {
-        backgroundColor: "#71D5FF",
-        color: "#000",
+        backgroundColor: "#FFBB71",
+        color: "#3267AC",
     },
     [`&.${tableCellClasses.body}`]: {
         fontSize: 14,

@@ -67,7 +67,7 @@ export const Buscar = () => {
             required
           >
             {skills.map((skill) => (
-              <MenuItem value={skill.id}>{skill.name}</MenuItem>
+              <MenuItem key={skill.id} value={skill.id}>{skill.name}</MenuItem>
             ))}
           </Select>
         </FormControl>

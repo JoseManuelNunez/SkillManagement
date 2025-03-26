@@ -49,7 +49,11 @@ export const Perfil = () => {
     )
   }
 
-  if (employee.name === undefined) return <></>;
+  if (employee.name === undefined) return (
+    <div className={style.containerLoader}>
+    <div className={style.loader}></div>
+  </div>
+  );
   return (
     <main>
       <header>

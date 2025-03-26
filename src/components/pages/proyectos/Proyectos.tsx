@@ -13,14 +13,14 @@ import {
 import { CustomAppBar } from "../../appBar";
 import style from "./proyectos.module.css";
 import { useContext, useState } from "react";
-import { RenderSkill } from "../../renderSkill/RenderSkill";
 import { Context } from "../../../context/Context";
 import { IProject } from "../../../context/types";
-import { RenderEmployee } from "../../renderEmployee/RenderEmployee";
-
+import SettingsIcon from '@mui/icons-material/Settings';
+import { useNavigate } from "react-router-dom";
 export const Proyectos = () => {
   const { projects } = useContext(Context);
   const [searchValue, setSearchValue] = useState<string>("");
+  const navegare = useNavigate()
 
   return (
     <main>
@@ -39,11 +39,8 @@ export const Proyectos = () => {
               <TableRow>
                 <StyledTableCell>Nombre</StyledTableCell>
                 <StyledTableCell align="center">Descripcion</StyledTableCell>
-                <StyledTableCell align="center">
-                  Skills requeridas
-                </StyledTableCell>
-                <StyledTableCell align="center">
-                  Equipo
+                <StyledTableCell align="right">
+                  Acciones
                 </StyledTableCell>
               </TableRow>
             </TableHead>
@@ -56,28 +53,8 @@ export const Proyectos = () => {
                   <StyledTableCell align="center">
                     {project.description}
                   </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {project.requiredSkills.map(
-                      (skill: { skillId: string; level: string }) => (
-                        <>
-                          <RenderSkill
-                            Description={false}
-                            id={skill.skillId.toString()}
-                            key={skill.skillId}
-                          />{" "}
-                          - {skill.level}
-                          <br />
-                        </>
-                      )
-                    )}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">
-                    {project.assignedEmployees.map((id) => (
-                      <>
-                        <RenderEmployee id={id} key={id} />
-                        <br />
-                      </>
-                    ))}
+                  <StyledTableCell align="right">
+                    <SettingsIcon onClick={() => navegare(`/detalle-proyecto/${project.id}`)} />
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

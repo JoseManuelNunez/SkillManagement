@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Context } from "./Context";
-import { IEmployee, INewSkillEmployee, IProject, ISkill } from "./types";
+import { IEmployee, INewSkillEmployee, INewSkillProject, IProject, ISkill } from "./types";
 import { showBasicAlert } from "../alerts/alerts";
 
 export const Provider = ({ children }: { children: JSX.Element }) => {
@@ -51,6 +51,7 @@ export const Provider = ({ children }: { children: JSX.Element }) => {
     const res = await fetch("http://localhost:3000/employees");
     await res.json().then(async (data) => {
       setEmployees(data);
+      getEmployee()
     });
   };
 
@@ -66,13 +67,35 @@ export const Provider = ({ children }: { children: JSX.Element }) => {
       method: "PUT",
       body: JSON.stringify(employeeWithNewSkill),
     }).then(() => {
+      getEmployees()
+      getSkill()
       showBasicAlert(
         "Buen trabajo",
         `${employee.name} a añadido correctamente la skill`
-      ),
-        getEmployee();
+      )
     });
   };
+
+  const addNewSkillRequire = async (newSkill: INewSkillProject, idProject: string) => {
+    const token = await localStorage.getItem("token")
+    if (!token) return
+    const proyecto: IProject = projects.find((p) => p.id === idProject) ?? ({} as IProject);
+    const oldProjectSkills = proyecto.requiredSkills;
+    const newProject: IProject = {
+      ...proyecto,
+      requiredSkills: [...oldProjectSkills, newSkill],
+    };
+    await fetch(`http://localhost:3000/projects/${idProject}`, {
+      method: "PUT",
+      body: JSON.stringify(newProject),
+    }).then(() => {
+      showBasicAlert(
+        "Buen trabajo",
+        "La skill a sido añadida correctamente al proyecto"
+      );
+      getProject();
+    });
+  }
 
   const addNewEmployeeInProject = async (
     idEmployee: string,
@@ -88,8 +111,30 @@ export const Provider = ({ children }: { children: JSX.Element }) => {
     await fetch(`http://localhost:3000/projects/${idProject}`, {
       method: "PUT",
       body: JSON.stringify(newTeam),
-    });
+    }).then(() => {
+      getEmployees()
+      getProject()
+      getSkill()
+      showBasicAlert(
+        "Buen trabajo",
+        "La skill a sido añadida correctamente al proyecto"
+      );
+    })
   };
+
+  const removeEmployeeInProject = async (idEmployee: string, idProject: string) => {
+    const oldTeam: IProject = projects.find((p) => p.id === idProject) ?? ({} as IProject);
+    const newTeam: IProject = {
+      ...oldTeam,
+      assignedEmployees: oldTeam.assignedEmployees.filter((e) => e !== idEmployee)
+    }
+    await fetch(`http://localhost:3000/projects/${idProject}`, {
+      method: "PUT",
+      body: JSON.stringify(newTeam)
+    }).then(() => {
+      getProject()
+    })
+  }
 
   const removeEmployeeSkill = async (id: string) => {
     const skills = employee.skills.filter((s) => s.skillId != id);
@@ -98,9 +143,30 @@ export const Provider = ({ children }: { children: JSX.Element }) => {
       method: "PUT",
       body: JSON.stringify(employeeWithNewSkill),
     }).then(() => {
-      getEmployee();
+      getEmployees();
+      getEmployee()
     });
   };
+
+  const removeSkillRequire = async (skillId: string, projectId: string) => {
+    const project = projects.find((p) => p.id === projectId);
+    const newSkills = project?.requiredSkills.filter(
+      (skill) => skill.skillId !== skillId
+    );
+    const newProject = { ...project, requiredSkills: newSkills };
+    await fetch(`http://localhost:3000/projects/${projectId}`, {
+      method: "PUT",
+      body: JSON.stringify(newProject),
+    }).then(() => {
+      showBasicAlert(
+        "Buen trabajo",
+        "La skill a sido eliminada correctamente del proyecto"
+      );
+      getProject();
+    });
+  }
+
+ 
 
   const createNewSkill = async (skill: ISkill) => {
     await fetch("http://localhost:3000/skills", {
@@ -144,6 +210,9 @@ export const Provider = ({ children }: { children: JSX.Element }) => {
         setNivelFilter,
         addNewEmployeeInProject,
         getEmployee,
+        addNewSkillRequire,
+        removeSkillRequire,
+        removeEmployeeInProject
       }}
     >
       {children}

@@ -12,11 +12,12 @@ import {
 } from "@mui/material";
 import React, { useContext } from "react";
 import { Context } from "../../context/Context";
-import { INewSkillEmployee, ISkill } from "../../context/types";
+import { INewSkillEmployee, IProject, ISkill } from "../../context/types";
 
-export const SelectDialog = () => {
-  const { skills, employeeSkills, addNewEmployeeSkill } = useContext(Context);
+export const AddSkillRequire = ({proyecto}:{proyecto:IProject}) => {
+  const { skills, addNewSkillRequire } = useContext(Context);
   
+  const proyectoSkills = proyecto.requiredSkills.map((skill) => skill.skillId);
 
   const [open, setOpen] = React.useState(false);
 
@@ -36,7 +37,7 @@ export const SelectDialog = () => {
         sx={{ float: "right", mr: 10, mt: 2 }}
         onClick={handleClickOpen}
       >
-        Añadir Nueva Skill
+        Añadir Nueva Skill Requerida
       </Button>
       <Dialog
         open={open}
@@ -49,23 +50,21 @@ export const SelectDialog = () => {
             const formJson = Object.fromEntries(formData.entries());
             const skill = formJson.skill;
             const nivel = formJson.nivel;
-            const newEmployeeSkill: INewSkillEmployee = {
+            const newSkill: INewSkillEmployee = {
               skillId: skill.toString(),
               level: nivel.toString()
 
             }
-            addNewEmployeeSkill(newEmployeeSkill);
+            addNewSkillRequire(newSkill, proyecto.id);
 
             handleClose();
           },
         }}
       >
-        <DialogTitle>Añadir una nueva habilidad</DialogTitle>
+        <DialogTitle>Añadir una nueva habilidad Requerida</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Añade una nueva habilidad para que todos los usuarios vean tus
-            nuevos logros en el desarrollo de software y los encargados de
-            proyectos y administradores te puedan asignar a nuevos proyectos
+            Añade una nueva habilidad requerida la cual el equipo de trabajo debe tener para poder ser asignado a este proyecto.
           </DialogContentText>
           <FormControl fullWidth sx={{mb: 1, mt: 1}}>
             <InputLabel id="demo-simple-select-label">Skill</InputLabel>
@@ -77,7 +76,7 @@ export const SelectDialog = () => {
               required
             >
               {skills
-                .filter((s: ISkill) => !employeeSkills.includes((s.id)))
+                .filter((s: ISkill) => !proyectoSkills.includes((s.id)))
                 .map((skill) => (
                   <MenuItem key={skill.id} value={skill.id}>{skill.name}</MenuItem>
                 ))}
@@ -112,4 +111,4 @@ export const SelectDialog = () => {
       </Dialog>
     </React.Fragment>
   );
-};
+}

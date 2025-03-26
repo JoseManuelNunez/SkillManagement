@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import {
   Buscar,
+  DetalleProyecto,
   Error404,
   InventarioSkills,
   LateralMenu,
@@ -36,6 +37,11 @@ function App() {
               <Route path="/proyectos" element={
                 <PrivateContent>
                   <Proyectos />
+                </PrivateContent>
+              } />
+              <Route path="/detalle-proyecto/:id" element={
+                <PrivateContent>
+                  <DetalleProyecto />
                 </PrivateContent>
               } />
               <Route path="*" element={<Error404 />} />
