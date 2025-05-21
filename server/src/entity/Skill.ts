@@ -1,22 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm"
-import { EmployeeEntity } from "./Employee";
+import { Entity, PrimaryColumn, Column } from 'typeorm';
 
 @Entity()
 export class SkillEntity {
-
-    @PrimaryGeneratedColumn()
-    id: number;
-
-    @Column()
-    name: string
+    @PrimaryColumn()
+    id!: number;
 
     @Column()
-    description: string
+    name!: string;
 
-    @ManyToOne(() => EmployeeEntity, (employee) => employee.skills, {
-        nullable: true,
-        onDelete: 'CASCADE',
-      })
-      employee: EmployeeEntity;
-
+    @Column({ type: 'text' })
+    description!: string;
 }

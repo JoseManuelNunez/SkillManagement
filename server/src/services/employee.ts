@@ -25,8 +25,8 @@ export class EmployeeService {
    * @return {UserEntity | null}
    */
 
-    public async getEmployeeByUsername(username: string): Promise<EmployeeEntity | null> {
-        return await EmployeeService.repository.findOne({ where: { username } });
+    public async getEmployeeByUsername(name: string): Promise<EmployeeEntity | null> {
+        return await EmployeeService.repository.findOne({ where: { name } });
     }
 
     /**

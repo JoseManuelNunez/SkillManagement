@@ -1,25 +1,30 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinTable } from "typeorm"
-import { SkillEntity } from "./Skill"
+import {
+    Entity, PrimaryColumn, Column, OneToMany,
+} from 'typeorm';
+import { hashSync } from 'bcryptjs';
+import { EmployeeSkillEntity } from './EmployeeSkill';
 
 @Entity()
 export class EmployeeEntity {
-
-    @PrimaryGeneratedColumn()
-    id: number
-
-    @Column()
-    username: string
+    @PrimaryColumn()
+    id!: number;
 
     @Column()
-    password: string
+    name!: string;
 
     @Column()
-    postition: string
+    position!: string;
+
+    @Column({ default: 'basic' })
+    role!: 'basic' | 'admin';
 
     @Column()
-    role: "basic" | 'admin'
+    password!: string;
 
-    @ManyToOne(() => SkillEntity, (skill) => skill)
-    skills: SkillEntity[]
+    @OneToMany(() => EmployeeSkillEntity, (es) => es.employee, { cascade: true })
+    employeeSkills!: EmployeeSkillEntity[];
 
+    beforeInsert(): void {
+        this.password = hashSync(this.password, 10);
+    }
 }
