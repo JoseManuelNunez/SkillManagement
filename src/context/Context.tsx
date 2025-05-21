@@ -10,6 +10,8 @@ interface IContext {
     addNewEmployeeSkill: (data: INewSkillEmployee) => void
     removeEmployeeSkill: (id: string) => void
     getSkill: () => void
+    getProject: () => void
+    changeProjectStatus: (id: string, status: string) => void
     employees: IEmployee[]
     setSkillFilter: (data: string) => void
     skillFilter: string
@@ -20,6 +22,7 @@ interface IContext {
     addNewSkillRequire: (newSkill: INewSkillProject, idProject: string) => void
     removeSkillRequire: (skillId: string, projectId: string) => void
     removeEmployeeInProject: (idEmployee: string, idProject: string) => void
+    createNewProject: (data: IProject) => void
 }
 
 export const Context = createContext({} as IContext)

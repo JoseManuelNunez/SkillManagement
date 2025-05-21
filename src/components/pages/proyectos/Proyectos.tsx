@@ -5,6 +5,8 @@ import {
   TableHead,
   TableRow,
   TableBody,
+  IconButton,
+  Chip,
 } from "@mui/material";
 import {
   StyledTableCell,
@@ -17,10 +19,59 @@ import { Context } from "../../../context/Context";
 import { IProject } from "../../../context/types";
 import SettingsIcon from '@mui/icons-material/Settings';
 import { useNavigate } from "react-router-dom";
+import { CreateNewProject } from "../../dialog/CreateNewProject";
+import Swal from "sweetalert2";
+import DeleteIcon from "@mui/icons-material/Delete";
+
+
 export const Proyectos = () => {
-  const { projects } = useContext(Context);
+  const { projects, getProject, employee } = useContext(Context);
   const [searchValue, setSearchValue] = useState<string>("");
   const navegare = useNavigate()
+
+  const nowColor = (estado: string) => {
+    if (estado === 'desarrollo') {
+      return "info"
+    } else if (estado === 'Listo') {
+      return "success"
+    } else {
+      return "error"
+    }
+  }
+  
+  const deleteProject = async (id:string) => {
+    await fetch(`http://localhost:3000/projects/${id}`, {
+      method: "DELETE"
+  }).then(() => {
+    getProject()
+  })
+  }
+
+
+  const handleSureDelete = (id:string) => {
+    return (
+      Swal.fire({
+        title: "¿Estas seguro?",
+        text: "¿Seguro que quieres remover este proyecto?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, estoy seguro!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          deleteProject(id)
+          Swal.fire({
+            title: "Removido!",
+            text: "El proyecto ha sido removido correctamente!",
+            icon: "success"
+          });
+        }
+      })
+    )
+  }
+
+
 
   return (
     <main>
@@ -39,6 +90,7 @@ export const Proyectos = () => {
               <TableRow>
                 <StyledTableCell>Nombre</StyledTableCell>
                 <StyledTableCell align="center">Descripcion</StyledTableCell>
+                <StyledTableCell align="center">Estado</StyledTableCell>
                 <StyledTableCell align="right">
                   Acciones
                 </StyledTableCell>
@@ -53,8 +105,19 @@ export const Proyectos = () => {
                   <StyledTableCell align="center">
                     {project.description}
                   </StyledTableCell>
+                  <StyledTableCell align="center">
+                    <Chip color={nowColor(project.estado)} label={project.estado} />
+                  </StyledTableCell>
                   <StyledTableCell align="right">
-                    <SettingsIcon onClick={() => navegare(`/detalle-proyecto/${project.id}`)} />
+
+                    <IconButton color='primary' onClick={() => navegare(`/detalle-proyecto/${project.id}`)}  >
+                    <SettingsIcon />
+                      
+                    </IconButton>
+                    <IconButton color='primary' disabled={employee.role !== 'admin'} onClick={() => handleSureDelete(project.id)}>
+                      <DeleteIcon />
+                      
+                    </IconButton>
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
@@ -62,6 +125,7 @@ export const Proyectos = () => {
           </Table>
         </TableContainer>
       </section>
+      <CreateNewProject />
     </main>
   );
 };

@@ -19,6 +19,7 @@ export interface IProject {
     description: string
     requiredSkills: INewSkillEmployee[]
     assignedEmployees: string[]
+    estado: string
 
 }
 

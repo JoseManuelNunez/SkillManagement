@@ -1278,6 +1278,7 @@
       "id": "1",
       "name": "Project A",
       "description": "Desarrollo de una aplicación web para la gestión de inventarios.",
+      "estado": "Listo",
       "requiredSkills": [
         {
           "skillId": "1",
@@ -1301,6 +1302,7 @@
       "id": "2",
       "name": "Project B",
       "description": "Implementación de un sistema backend para procesamiento de datos.",
+      "estado": "bloqueado",
       "requiredSkills": [
         {
           "skillId": "3",
@@ -1322,6 +1324,7 @@
       "id": "3",
       "name": "Project C",
       "description": "Desarrollo de una plataforma fullstack para e-commerce.",
+      "estado": "desarrollo",
       "requiredSkills": [
         {
           "skillId": "5",
@@ -1343,6 +1346,7 @@
       "id": "4",
       "name": "Project D",
       "description": "Creación de una aplicación móvil para servicios financieros.",
+      "estado": "bloqueado",
       "requiredSkills": [
         {
           "skillId": "7",
@@ -1367,6 +1371,7 @@
       "id": "5",
       "name": "Project E",
       "description": "Desarrollo de un sistema de gestión de recursos humanos.",
+      "estado": "bloqueado",
       "requiredSkills": [
         {
           "skillId": "9",
@@ -1388,6 +1393,7 @@
       "id": "6",
       "name": "Project F",
       "description": "Implementación de una plataforma de aprendizaje online.",
+      "estado": "bloqueado",
       "requiredSkills": [
         {
           "skillId": "11",
@@ -1408,6 +1414,7 @@
       "id": "7",
       "name": "Project G",
       "description": "Desarrollo de una aplicación de salud y bienestar.",
+      "estado": "Listo",
       "requiredSkills": [
         {
           "skillId": "13",
@@ -1429,6 +1436,7 @@
       "id": "8",
       "name": "Project H",
       "description": "Creación de una plataforma de análisis de datos.",
+      "estado": "Listo",
       "requiredSkills": [
         {
           "skillId": "15",
@@ -1450,6 +1458,7 @@
       "id": "9",
       "name": "Project I",
       "description": "Implementación de un sistema de automatización de marketing.",
+      "estado": "Listo",
       "requiredSkills": [
         {
           "skillId": "17",
@@ -1471,6 +1480,7 @@
       "id": "10",
       "name": "Project J",
       "description": "Desarrollo de una plataforma de gestión de proyectos.",
+      "estado": "desarrollo",
       "requiredSkills": [
         {
           "skillId": "19",
@@ -1492,6 +1502,7 @@
       "id": "11",
       "name": "Project K",
       "description": "Creación de un sistema de gestión de contenidos.",
+      "estado": "desarrollo",
       "requiredSkills": [
         {
           "skillId": "21",
@@ -1512,6 +1523,7 @@
       "id": "12",
       "name": "Project L",
       "description": "Implementación de una plataforma de reserva de viajes.",
+      "estado": "desarrollo",
       "requiredSkills": [
         {
           "skillId": "23",
@@ -1525,13 +1537,15 @@
       "assignedEmployees": [
         "7",
         "9",
-        "11"
+        "11",
+        "1"
       ]
     },
     {
       "id": "13",
       "name": "Project M",
       "description": "Desarrollo de un sistema de gestión de ventas.",
+      "estado": "desarrollo",
       "requiredSkills": [
         {
           "skillId": "25",

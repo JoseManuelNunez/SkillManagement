@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { CustomAppBar } from "../../appBar";
 import { useContext, useState } from "react";
 import { Context } from "../../../context/Context";
-import { TableContainer, Paper, Table, TableHead, TableRow, TableBody } from "@mui/material";
+import { TableContainer, Paper, Table, TableHead, TableRow, TableBody, IconButton, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
 import { StyledTableCell, StyledTableRow } from "../../../utils/customComponents/tables/StyledTables";
 import { RenderEmployee } from "../../renderEmployee/RenderEmployee";
 import { RenderSkill } from "../../renderSkill/RenderSkill";
@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 
 export const DetalleProyecto = () => {
 	const [searchValue, setSearchValue] = useState<string>("");
-	const { projects, removeSkillRequire, removeEmployeeInProject } = useContext(Context);
+	const { projects, removeSkillRequire, removeEmployeeInProject, employee: mainEmployee, changeProjectStatus } = useContext(Context);
 	const { id } = useParams<{ id: string }>();
 
 	const proyecto: IProject | undefined = projects.find((project) => project.id === id);
@@ -69,6 +69,31 @@ export const DetalleProyecto = () => {
     )
   }
 
+  const handleChangeEstado = (e: SelectChangeEvent<string>) => {
+		const {value} = e.target
+    if (!proyecto) return;
+    return (
+      Swal.fire({
+        title: "¿Estas seguro?",
+        html: `¿Seguro que quieres cambiar el estado de este proyecto a <b>${value}</b>`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, estoy seguro!"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          changeProjectStatus(proyecto.id, value)
+          Swal.fire({
+            title: "Removido!",
+            text: "El empleado a sido Removido de correctamente!",
+            icon: "success"
+          });
+        }
+      })
+    )
+  }
+
 	if (!proyecto) return (
 		<div className={style.containerLoader}>
 			<div className={style.loader}></div>
@@ -85,6 +110,7 @@ export const DetalleProyecto = () => {
 				/>
 			</header>
 			<section style={{display: 'flex', justifyContent: "space-around", width: "60vw", marginLeft: "10vw"}} >
+
 			<TableContainer component={Paper} sx={{ width: "30%", mt: 10, maxHeight: 680 }}>
 				<Table sx={{ minWidth: 300 }} aria-label="customized table">
 					<TableHead>
@@ -101,8 +127,10 @@ export const DetalleProyecto = () => {
 										id={employee}
 									/>
 								</StyledTableCell>
-                <StyledTableCell align="right">    
-                  <DeleteIcon sx={{cursor: 'pointer'}} onClick={() => handleRemoveEmployee(employee)} />
+                <StyledTableCell align="right">
+								<IconButton color="primary" disabled={mainEmployee.role !== 'admin'} onClick={() => handleRemoveEmployee(employee)}  >
+                  <DeleteIcon />
+                    </IconButton>    
 							</StyledTableCell>
 							</StyledTableRow>
 						))}
@@ -138,8 +166,10 @@ export const DetalleProyecto = () => {
 									<StyledTableCell align="center">
 										{skill.level}
 									</StyledTableCell>
-                  <StyledTableCell align="right">    
-                  <DeleteIcon sx={{cursor: 'pointer'}} onClick={() => handleremoveSkill(skill.skillId)} />
+                  <StyledTableCell align="right">
+									<IconButton color="primary" disabled={mainEmployee.role !== 'admin'} onClick={() => handleremoveSkill(skill.skillId)}  >
+                  <DeleteIcon />
+                    </IconButton>        
 							</StyledTableCell>
 								</StyledTableRow>
 							))}
@@ -150,6 +180,20 @@ export const DetalleProyecto = () => {
 				</TableContainer>
 
 			</section>
+			<InputLabel sx={{ml: 35, mt: 5}} id="demo-simple-select-label">Estado</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              label="Skill"
+              name="skill"
+							sx={{width: '10%', ml: 35}}
+							defaultValue={proyecto.estado}
+							onChange={handleChangeEstado}
+            >
+                  <MenuItem value='desarrollo'>Desarrollo</MenuItem>
+									<MenuItem value='Listo'>Listo</MenuItem>
+									<MenuItem value='bloqueado'>Bloqueado</MenuItem>
+            </Select>
 			<AddSkillRequire proyecto={proyecto} />
 		</main>
 	);

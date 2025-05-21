@@ -185,6 +185,41 @@ export const Provider = ({ children }: { children: JSX.Element }) => {
       .catch((error) => console.error(error));
   };
 
+  const createNewProject = async (project: IProject) => {
+    await fetch("http://localhost:3000/projects", {
+      method: "POST",
+      body: JSON.stringify(project),
+    })
+      .then(
+        () => (
+          showBasicAlert(
+            "Buen trabajo",
+            "El proyecto a sido registrado correctamente"
+          ),
+          getProject()
+        )
+      )
+      .catch((error) => console.error(error));
+  };
+
+  const changeProjectStatus = async (id: string, status: string) => {
+    console.log(id, status);
+    const project = projects.find((p) => p.id === id);
+    const newProject = { ...project, estado: status };
+    console.log("estoy aqui compay",newProject);
+    await fetch(`http://localhost:3000/projects/${id}`, {
+      method: "PUT",
+      body: JSON.stringify(newProject),
+    }).then(() => {
+      showBasicAlert(
+        "Buen trabajo",
+        "El estado del proyecto a sido cambiado correctamente"
+      );
+      getProject();
+    });
+  }
+
+
   useEffect(() => {
     getSkill();
     getProject();
@@ -212,7 +247,10 @@ export const Provider = ({ children }: { children: JSX.Element }) => {
         getEmployee,
         addNewSkillRequire,
         removeSkillRequire,
-        removeEmployeeInProject
+        removeEmployeeInProject,
+        createNewProject,
+        getProject,
+        changeProjectStatus
       }}
     >
       {children}
