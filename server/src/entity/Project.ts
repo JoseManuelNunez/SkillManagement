@@ -15,6 +15,9 @@ export class ProjectEntity {
     @Column({ type: 'text' })
     description!: string;
 
+    @Column()
+    status!: string;
+
     @OneToMany(() => ProjectSkillEntity, (ps) => ps.project, { cascade: true })
     projectSkills!: ProjectSkillEntity[];
 

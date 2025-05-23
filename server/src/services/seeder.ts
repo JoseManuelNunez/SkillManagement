@@ -61,10 +61,12 @@ export class SeederService {
             }
 
             for (const projectData of data.projects) {
+                console.log(projectData);
                 const project = SeederService.projectRepository.create({
                     id: parseInt(projectData.id, 10),
                     name: projectData.name,
-                    description: projectData.description
+                    description: projectData.description,
+                    status: projectData.status
                 });
                 await SeederService.projectRepository.save(project);
 

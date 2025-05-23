@@ -7,7 +7,7 @@ import { projects } from "./project/project";
 
 export default function setupRoutes(app: Application) {
     app.get("/", (_, res: Response) => { res.json("Skill Managment Server"); });
-    app.get("/employee", employees);
+    app.get("/employees", employees);
     app.get("/projects", projects);
     app.get("/skills", skills);
     app.post("/login", login);

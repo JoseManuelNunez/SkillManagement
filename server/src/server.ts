@@ -2,11 +2,11 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import { Config } from './config';
 import setupRoutes from './routes';
-import { database } from './data-source';
 import { EmployeeService } from './services/employee';
 import { SeederService } from './services/seeder';
 import { SkillService } from './services/skill';
 import { ProjectService } from './services/project';
+import database from './data-source';
 
 
 const app = express();
@@ -15,7 +15,7 @@ export async function getServer(): Promise<Express> {
 
     Config.init();
 
-    const dataSource = await database.initialize();
+    const dataSource = await database().initialize();
 
     // Initialize services
     EmployeeService.init(dataSource);

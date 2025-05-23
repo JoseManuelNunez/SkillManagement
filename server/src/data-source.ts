@@ -4,17 +4,21 @@ import { SkillEntity } from "./entity/Skill";
 import { EmployeeSkillEntity } from "./entity/EmployeeSkill";
 import { ProjectEntity } from "./entity/Project";
 import { ProjectSkillEntity } from "./entity/ProjectSkill";
+import { Config } from "./config";
 
-export const database = new DataSource({
-    type: "postgres",
-    host: "localhost",
-    port: 5432,
-    username: "postgres",
-    password: "postgres",
-    database: "skillmanagement",
-    synchronize: true,
-    logging: true,
-    entities: [EmployeeEntity, EmployeeSkillEntity, SkillEntity, ProjectEntity, ProjectSkillEntity],
-    subscribers: [],
-    migrations: [],
-})
+
+const database = () => {
+    return new DataSource({
+        type: "postgres",
+        host: Config.databaseHost,
+        port: Config.databasePort,
+        username: Config.databaseUser,
+        password: Config.databasePassword,
+        database: Config.databaseName,
+        synchronize: true,
+        logging: true,
+        entities: [EmployeeEntity, EmployeeSkillEntity, SkillEntity, ProjectEntity, ProjectSkillEntity],
+    })
+};
+
+export default database

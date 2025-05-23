@@ -44,7 +44,7 @@ export class Config {
         if (!process.env.DATABASE_NAME) {
             throw new Error('No DATABASE_NAME environment variable detected. Using default name postgres.');
         }
-        Config.databaseName = process.env.DATABASE_NAME;
+        Config.databaseName = process.env.DATABASE_NAME || "postgres";
 
         if (!process.env.DATABASE_USER) {
             Config.warning('No DATABASE_USER environment variable detected. Using default user postgres.');
