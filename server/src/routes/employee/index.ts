@@ -9,6 +9,11 @@ router.get("/", async (_, res: Response) => {
     try {
         const employeeService = new EmployeeService();
         const employees = await employeeService.getAllEmployees()
+
+        if (!employees) {
+            res.status(404).json({ message: 'Employees not found' });
+        }
+
         res.send(employees);
     } catch (error) {
         res.status(400).send({ error });
@@ -22,12 +27,24 @@ router.get("/:id", async (req: Request, res: Response) => {
 
         const employeeService = new EmployeeService();
         const employee = await employeeService.getEmployeeById(id);
+        console.log(employee)
 
         if (!employee) {
             res.status(404).json({ message: 'Employee not found' });
         }
 
-        res.json(employee);
+        res.json({
+            id: employee?.id,
+            name: employee?.name,
+            position: employee?.position,
+            role: employee?.role,
+            password: employee?.password,
+            skills: employee?.skills.map(skill => ({
+                skillid: skill.skillId,
+                level: skill.level
+            }))
+        })
+
     } catch (error) {
         res.status(500).json({ message: 'Server error', error });
     }
