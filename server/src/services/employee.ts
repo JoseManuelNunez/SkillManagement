@@ -19,6 +19,19 @@ export class EmployeeService {
         return await EmployeeService.repository.find();
     }
 
+     /**
+   * getAll
+   * @param {number} id
+   * @return {EmployeeEntity | null}
+   */
+
+    public async getEmployeeById(id: number): Promise<EmployeeEntity | null> {
+        return await EmployeeService.repository.findOne({
+            where: { id },
+            relations: ['skills']
+        });
+    }
+
     /**
    * getEmployeeByUsername
    * @param {string} username
