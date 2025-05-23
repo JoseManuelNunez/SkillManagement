@@ -15,7 +15,7 @@ export class ProjectSkillEntity {
     @Column({ type: 'integer' })
     skillId!: string;
 
-    @ManyToOne(() => ProjectEntity, (p) => p.projectSkills, { onDelete: 'CASCADE' })
+    @ManyToOne(() => ProjectEntity, (p) => p.requiredSkills, { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'projectId' })
     project!: ProjectEntity;
 

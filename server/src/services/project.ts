@@ -15,6 +15,17 @@ export class ProjectService {
    */
 
     public async getAllProjects(): Promise<ProjectEntity[]> {
-        return await ProjectService.repository.find();
+        return await ProjectService.repository.find({
+            relations: ['requiredSkills', 'assignedEmployees'],
+            select: {
+                requiredSkills: {
+                    skillId: true,
+                    level: true
+                },
+                assignedEmployees: {
+                    id: true
+                }
+            }
+        });
     }
 }

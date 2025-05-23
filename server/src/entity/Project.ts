@@ -19,9 +19,9 @@ export class ProjectEntity {
     status!: string;
 
     @OneToMany(() => ProjectSkillEntity, (ps) => ps.project, { cascade: true })
-    projectSkills!: ProjectSkillEntity[];
+    requiredSkills!: ProjectSkillEntity[];
 
-    @ManyToMany(() => EmployeeEntity, { eager: true })
+    @ManyToMany(() => EmployeeEntity)
     @JoinTable()
     assignedEmployees!: EmployeeEntity[];
 }
