@@ -7,7 +7,7 @@ import { EmployeeSkillEntity } from './EmployeeSkill';
 @Entity()
 export class EmployeeEntity {
     @PrimaryColumn()
-    id!: number;
+    id!: string;
 
     @Column()
     name!: string;
@@ -22,9 +22,6 @@ export class EmployeeEntity {
     password!: string;
 
     @OneToMany(() => EmployeeSkillEntity, (es) => es.employee, { cascade: true })
-    employeeSkills!: EmployeeSkillEntity[];
+    skills!: EmployeeSkillEntity[];
 
-    beforeInsert(): void {
-        this.password = hashSync(this.password, 10);
-    }
 }

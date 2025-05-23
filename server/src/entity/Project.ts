@@ -7,7 +7,7 @@ import { EmployeeEntity } from './Employee';
 @Entity()
 export class ProjectEntity {
     @PrimaryColumn()
-    id!: number;
+    id!: string;
 
     @Column()
     name!: string;

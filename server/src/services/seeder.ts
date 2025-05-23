@@ -33,7 +33,7 @@ export class SeederService {
 
             for (const skillData of data.skills) {
                 const skill = SeederService.skillRepository.create({
-                    id: parseInt(skillData.id, 10),
+                    id: skillData.id,
                     name: skillData.name,
                     description: skillData.description
                 });
@@ -41,8 +41,9 @@ export class SeederService {
             }
 
             for (const employeeData of data.employees) {
+                console.log(employeeData)
                 const employee = SeederService.employeeRepository.create({
-                    id: parseInt(employeeData.id, 10),
+                    id: employeeData.id,
                     name: employeeData.name,
                     position: employeeData.position,
                     role: employeeData.role,
@@ -53,7 +54,7 @@ export class SeederService {
                 for (const skill of employeeData.skills) {
                     const employeeSkill = SeederService.employeeSkillRepository.create({
                         employeeId: employee.id,
-                        skillId: parseInt(skill.skillId, 10),
+                        skillId: skill.skillId,
                         level: skill.level
                     });
                     await SeederService.employeeSkillRepository.save(employeeSkill);
@@ -61,9 +62,8 @@ export class SeederService {
             }
 
             for (const projectData of data.projects) {
-                console.log(projectData);
                 const project = SeederService.projectRepository.create({
-                    id: parseInt(projectData.id, 10),
+                    id: projectData.id,
                     name: projectData.name,
                     description: projectData.description,
                     status: projectData.status
@@ -72,8 +72,8 @@ export class SeederService {
 
                 for (const requiredSkill of projectData.requiredSkills) {
                     const projectSkill = SeederService.projectSkillRepository.create({
-                        projectId: parseInt(projectData.id, 10), // Use project ID from data
-                        skillId: parseInt(requiredSkill.skillId, 10),
+                        projectId: projectData.id,
+                        skillId: requiredSkill.skillId,
                         level: requiredSkill.level
                     });
                     await SeederService.projectSkillRepository.save(projectSkill);
@@ -82,7 +82,7 @@ export class SeederService {
                 const assignedEmployees = [];
                 for (const employeeId of projectData.assignedEmployees) {
                     const employee = await SeederService.employeeRepository.findOneBy({
-                        id: parseInt(employeeId, 10)
+                        id: employeeId
                     });
                     if (employee) {
                         assignedEmployees.push(employee);

@@ -7,13 +7,13 @@ import { SkillEntity } from './Skill';
 @Entity()
 export class ProjectSkillEntity {
     @PrimaryGeneratedColumn()
-    id!: number;
+    id!: string;
 
     @Column({ type: 'integer' })
-    projectId!: number;
+    projectId!: string;
 
     @Column({ type: 'integer' })
-    skillId!: number;
+    skillId!: string;
 
     @ManyToOne(() => ProjectEntity, (p) => p.projectSkills, { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'projectId' })

@@ -3,7 +3,7 @@ import { Entity, PrimaryColumn, Column } from 'typeorm';
 @Entity()
 export class SkillEntity {
     @PrimaryColumn()
-    id!: number;
+    id!: string;
 
     @Column()
     name!: string;

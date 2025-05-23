@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Juan Pérez",
       "position": "Frontend Developer",
-      "role": "admin",
+      "role": "basic",
       "password": "password123",
       "skills": [
         {
@@ -16,28 +16,16 @@
           "level": "Avanzado"
         },
         {
-          "skillId": "5",
-          "level": "Avanzado"
-        },
-        {
-          "skillId": "21",
+          "skillId": "3",
           "level": "Básico"
         },
         {
-          "skillId": "20",
+          "skillId": "4",
           "level": "Intermedio"
         },
         {
-          "skillId": "22",
-          "level": "Intermedio"
-        },
-        {
-          "skillId": "16",
-          "level": "Intermedio"
-        },
-        {
-          "skillId": "13",
-          "level": "Intermedio"
+          "skillId": "5",
+          "level": "Avanzado"
         }
       ]
     },
@@ -96,10 +84,6 @@
         {
           "skillId": "15",
           "level": "Avanzado"
-        },
-        {
-          "skillId": "10",
-          "level": "Intermedio"
         }
       ]
     },
@@ -245,10 +229,6 @@
         {
           "skillId": "40",
           "level": "Avanzado"
-        },
-        {
-          "skillId": "522e30ce-75cc-4051-8396-8c1956456501",
-          "level": "Intermedio"
         }
       ]
     },
@@ -1266,386 +1246,6 @@
       "id": "75",
       "name": "OpenCV",
       "description": "Biblioteca open-source de visión por computadora."
-    },
-    {
-      "id": "76",
-      "name": "Babel",
-      "description": "Compilador de JavaScript para usar las últimas características del lenguaje."
-    },
-    {
-      "id": "77",
-      "name": "ESLint",
-      "description": "Herramienta de análisis estático para identificar problemas en código JavaScript."
-    },
-    {
-      "id": "78",
-      "name": "Prettier",
-      "description": "Formateador de código para mantener estilo consistente."
-    },
-    {
-      "id": "79",
-      "name": "OpenAI API",
-      "description": "API para integrar modelos de lenguaje como ChatGPT en aplicaciones."
-    },
-    {
-      "id": "80",
-      "name": "LangChain",
-      "description": "Framework para construir aplicaciones con modelos de lenguaje grandes (LLM)."
-    },
-    {
-      "id": "81",
-      "name": "LlamaIndex",
-      "description": "Herramienta para integrar LLMs con datos estructurados y no estructurados."
-    },
-    {
-      "id": "82",
-      "name": "PyTorch",
-      "description": "Framework de deep learning desarrollado por Meta."
-    },
-    {
-      "id": "83",
-      "name": "TensorFlow",
-      "description": "Biblioteca de aprendizaje automático de código abierto."
-    },
-    {
-      "id": "84",
-      "name": "Keras",
-      "description": "API de alto nivel para redes neuronales en Python."
-    },
-    {
-      "id": "85",
-      "name": "Scikit-learn",
-      "description": "Biblioteca de aprendizaje automático en Python."
-    },
-    {
-      "id": "86",
-      "name": "Pandas",
-      "description": "Biblioteca para manipulación y análisis de datos."
-    },
-    {
-      "id": "87",
-      "name": "NumPy",
-      "description": "Biblioteca para cálculos numéricos en Python."
-    },
-    {
-      "id": "88",
-      "name": "Matplotlib",
-      "description": "Biblioteca de gráficos 2D en Python."
-    },
-    {
-      "id": "89",
-      "name": "Seaborn",
-      "description": "Biblioteca para visualización de datos estadísticos en Python."
-    },
-    {
-      "id": "90",
-      "name": "FastAPI",
-      "description": "Framework web moderno y rápido para construir APIs con Python."
-    },
-    {
-      "id": "91",
-      "name": "Hugging Face Transformers",
-      "description": "Biblioteca para modelos preentrenados de NLP."
-    },
-    {
-      "id": "92",
-      "name": "OpenCV",
-      "description": "Biblioteca de visión por computadora de código abierto."
-    },
-    {
-      "id": "93",
-      "name": "Celery",
-      "description": "Sistema de cola de tareas asincrónicas en Python."
-    },
-    {
-      "id": "94",
-      "name": "RabbitMQ",
-      "description": "Sistema de colas para mensajería asincrónica."
-    },
-    {
-      "id": "95",
-      "name": "Apache Airflow",
-      "description": "Plataforma para programar, monitorizar y gestionar flujos de trabajo."
-    },
-    {
-      "id": "96",
-      "name": "Terraform",
-      "description": "Herramienta para la gestión de infraestructura como código."
-    },
-    {
-      "id": "97",
-      "name": "Prometheus",
-      "description": "Sistema de monitoreo y alerta para infraestructuras."
-    },
-    {
-      "id": "98",
-      "name": "Grafana",
-      "description": "Plataforma de visualización y análisis de métricas."
-    },
-    {
-      "id": "99",
-      "name": "New Relic",
-      "description": "Herramienta de monitoreo de rendimiento de aplicaciones."
-    },
-    {
-      "id": "100",
-      "name": "Datadog",
-      "description": "Plataforma de monitoreo para infraestructura, aplicaciones y logs."
-    },
-    {
-      "id": "101",
-      "name": "Metabase",
-      "description": "Herramienta de inteligencia de negocio de código abierto."
-    },
-    {
-      "id": "102",
-      "name": "Snowflake",
-      "description": "Plataforma de almacenamiento y análisis de datos en la nube."
-    },
-    {
-      "id": "103",
-      "name": "Power BI",
-      "description": "Herramienta de análisis de datos y visualización de Microsoft."
-    },
-    {
-      "id": "104",
-      "name": "Tableau",
-      "description": "Plataforma de análisis visual para inteligencia de negocio."
-    },
-    {
-      "id": "105",
-      "name": "Looker",
-      "description": "Plataforma de BI basada en la nube de Google."
-    },
-    {
-      "id": "106",
-      "name": "Azure DevOps",
-      "description": "Conjunto de herramientas de desarrollo colaborativo de Microsoft."
-    },
-    {
-      "id": "107",
-      "name": "GitLab CI/CD",
-      "description": "Pipelines de integración y entrega continua con GitLab."
-    },
-    {
-      "id": "108",
-      "name": "Bash",
-      "description": "Lenguaje de scripting para sistemas Unix/Linux."
-    },
-    {
-      "id": "109",
-      "name": "Zsh",
-      "description": "Intérprete de comandos de Unix potente y extensible."
-    },
-    {
-      "id": "110",
-      "name": "Make",
-      "description": "Herramienta para automatizar compilación de programas."
-    },
-    {
-      "id": "111",
-      "name": "CMake",
-      "description": "Sistema de automatización para compilación multiplataforma."
-    },
-    {
-      "id": "112",
-      "name": "C",
-      "description": "Lenguaje de programación de bajo nivel y alto rendimiento."
-    },
-    {
-      "id": "113",
-      "name": "C++",
-      "description": "Lenguaje de programación orientado a objetos de alto rendimiento."
-    },
-    {
-      "id": "114",
-      "name": "Assembly",
-      "description": "Lenguaje de bajo nivel utilizado para programación de hardware."
-    },
-    {
-      "id": "115",
-      "name": "Fortran",
-      "description": "Lenguaje de programación numérico y científico."
-    },
-    {
-      "id": "116",
-      "name": "COBOL",
-      "description": "Lenguaje utilizado en sistemas financieros y legacy."
-    },
-    {
-      "id": "117",
-      "name": "R",
-      "description": "Lenguaje para análisis estadístico y visualización."
-    },
-    {
-      "id": "118",
-      "name": "Julia",
-      "description": "Lenguaje de alto rendimiento para computación científica."
-    },
-    {
-      "id": "119",
-      "name": "F#",
-      "description": "Lenguaje funcional para la plataforma .NET."
-    },
-    {
-      "id": "120",
-      "name": "OCaml",
-      "description": "Lenguaje de programación funcional y orientado a objetos."
-    },
-    {
-      "id": "121",
-      "name": "Elm",
-      "description": "Lenguaje funcional para interfaces web."
-    },
-    {
-      "id": "122",
-      "name": "Haskell",
-      "description": "Lenguaje funcional puramente funcional y tipado estáticamente."
-    },
-    {
-      "id": "123",
-      "name": "Scala",
-      "description": "Lenguaje que combina programación funcional y orientada a objetos."
-    },
-    {
-      "id": "124",
-      "name": "Groovy",
-      "description": "Lenguaje dinámico para la plataforma Java."
-    },
-    {
-      "id": "125",
-      "name": "VB.NET",
-      "description": "Lenguaje orientado a objetos para aplicaciones en Windows."
-    },
-    {
-      "id": "126",
-      "name": "Delphi",
-      "description": "Lenguaje de programación basado en Pascal."
-    },
-    {
-      "id": "127",
-      "name": "Pascal",
-      "description": "Lenguaje de programación estructurado."
-    },
-    {
-      "id": "128",
-      "name": "Shell Script",
-      "description": "Lenguaje de scripting para automatización en sistemas Unix."
-    },
-    {
-      "id": "129",
-      "name": "JSON",
-      "description": "Formato ligero de intercambio de datos."
-    },
-    {
-      "id": "130",
-      "name": "YAML",
-      "description": "Formato de serialización de datos legible por humanos."
-    },
-    {
-      "id": "131",
-      "name": "XML",
-      "description": "Lenguaje de marcado utilizado para estructurar datos."
-    },
-    {
-      "id": "132",
-      "name": "REST",
-      "description": "Estilo de arquitectura para APIs web."
-    },
-    {
-      "id": "133",
-      "name": "gRPC",
-      "description": "Framework RPC de alto rendimiento de Google."
-    },
-    {
-      "id": "134",
-      "name": "WebSockets",
-      "description": "Protocolo para comunicación bidireccional entre cliente y servidor."
-    },
-    {
-      "id": "135",
-      "name": "OAuth2",
-      "description": "Protocolo para autorización segura en aplicaciones."
-    },
-    {
-      "id": "136",
-      "name": "JWT",
-      "description": "Formato para intercambio de tokens seguros en APIs."
-    },
-    {
-      "id": "137",
-      "name": "SAML",
-      "description": "Estándar abierto para el intercambio de datos de autenticación."
-    },
-    {
-      "id": "138",
-      "name": "SSO",
-      "description": "Mecanismo que permite autenticarse una vez para múltiples aplicaciones."
-    },
-    {
-      "id": "139",
-      "name": "WebRTC",
-      "description": "Tecnología para comunicaciones en tiempo real en navegadores."
-    },
-    {
-      "id": "140",
-      "name": "Service Workers",
-      "description": "Scripts que corren en segundo plano para aplicaciones web."
-    },
-    {
-      "id": "141",
-      "name": "Progressive Web Apps",
-      "description": "Aplicaciones web que ofrecen experiencia similar a nativas."
-    },
-    {
-      "id": "142",
-      "name": "Vercel",
-      "description": "Plataforma para despliegue de aplicaciones frontend."
-    },
-    {
-      "id": "143",
-      "name": "Netlify",
-      "description": "Plataforma para el desarrollo y despliegue de sitios JAMstack."
-    },
-    {
-      "id": "144",
-      "name": "DigitalOcean",
-      "description": "Proveedor de servicios en la nube enfocado en desarrolladores."
-    },
-    {
-      "id": "145",
-      "name": "Railway",
-      "description": "Plataforma para despliegue rápido de aplicaciones en la nube."
-    },
-    {
-      "id": "146",
-      "name": "Render",
-      "description": "Plataforma de nube para despliegue de aplicaciones web."
-    },
-    {
-      "id": "147",
-      "name": "Fly.io",
-      "description": "Plataforma para ejecutar aplicaciones cerca de los usuarios."
-    },
-    {
-      "id": "148",
-      "name": "Supabase",
-      "description": "Alternativa open-source a Firebase basada en PostgreSQL."
-    },
-    {
-      "id": "149",
-      "name": "PlanetScale",
-      "description": "Base de datos serverless basada en Vitess y MySQL."
-    },
-    {
-      "id": "150",
-      "name": "Turso",
-      "description": "Base de datos embebida para aplicaciones distribuidas."
-    },
-    {
-      "id": "522e30ce-75cc-4051-8396-8c1956456501",
-      "name": "prueba definitiva",
-      "description": "asi es señores una skill definitiva"
     }
   ],
   "projects": [

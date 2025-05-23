@@ -16,7 +16,16 @@ export class EmployeeService {
    */
 
     public async getAllEmployees(): Promise<EmployeeEntity[]> {
-        return await EmployeeService.repository.find();
+        return await EmployeeService.repository.find({
+            relations: ['skills'],
+            select: {
+                skills: {
+                    skillId: true,
+                    level: true
+                }
+            }
+
+        });
     }
 
     /**
@@ -25,11 +34,10 @@ export class EmployeeService {
   * @return {EmployeeEntity | null}
   */
 
-    public async getEmployeeById(id: number): Promise<EmployeeEntity | null> {
-        console.log(id);
+    public async getEmployeeById(id: string): Promise<EmployeeEntity | null> {
         return await EmployeeService.repository.findOne({
             where: { id },
-            relations: ['employeeSkills']
+            relations: ['skills']
         });
     }
 

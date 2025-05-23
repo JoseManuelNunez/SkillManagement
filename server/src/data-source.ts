@@ -16,7 +16,7 @@ const database = () => {
         password: Config.databasePassword,
         database: Config.databaseName,
         synchronize: true,
-        logging: true,
+        logging: false,
         entities: [EmployeeEntity, EmployeeSkillEntity, SkillEntity, ProjectEntity, ProjectSkillEntity],
     })
 };

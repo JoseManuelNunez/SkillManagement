@@ -7,15 +7,15 @@ import { SkillEntity } from './Skill';
 @Entity()
 export class EmployeeSkillEntity {
     @PrimaryGeneratedColumn()
-    id!: number;
+    id!: string;
 
     @Column({ type: 'integer' })
-    employeeId!: number;
+    employeeId!: string;
 
     @Column({ type: 'integer' })
-    skillId!: number;
+    skillId!: string;
 
-    @ManyToOne(() => EmployeeEntity, (e) => e.employeeSkills, { onDelete: 'CASCADE' })
+    @ManyToOne(() => EmployeeEntity, (e) => e.skills, { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'employeeId' })
     employee!: EmployeeEntity;
 
