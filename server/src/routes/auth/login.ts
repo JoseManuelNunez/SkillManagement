@@ -4,9 +4,10 @@ import jwt from 'jsonwebtoken';
 import { Config } from "../../config";
 
 export async function login(req: Request, res: Response) {
-    const { username, password } = req.body;
 
     try {
+        const { username, password } = req.body;
+
         const employeeService = new EmployeeService();
         const employee = await employeeService.login(username, password);
 

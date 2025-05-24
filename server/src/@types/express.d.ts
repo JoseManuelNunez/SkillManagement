@@ -1,6 +1,5 @@
-import { Request } from "express"
-import jwt from 'jsonwebtoken';
-
-export interface IGetUserAuthInfoRequest extends Request {
-    user: string | jwt.JwtPayload
+declare namespace Express {
+    export interface Request {
+        user: string | jwt.JwtPayload
+    }
 }

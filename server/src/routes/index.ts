@@ -8,8 +8,11 @@ import { authMiddleware } from "./auth/authMiddleware";
 
 export default function setupRoutes(app: Application) {
     app.get("/", (_, res: Response) => { res.json("Skill Managment Server"); });
-    app.use("/employees", authMiddleware, employeesRouter);
-    app.use("/projects", projects);
-    app.use("/skills", skills);
     app.use("/login", login);
+
+    app.use("/employees", authMiddleware, employeesRouter);
+    app.use("/projects", authMiddleware, projects);
+    app.use("/skills", authMiddleware, skills);
+
+
 }

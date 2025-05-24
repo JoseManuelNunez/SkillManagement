@@ -5,6 +5,7 @@ export interface ISkill {
 }
 
 export interface INewSkillEmployee {
-    skillId: string
+    employeeId: string
+    skillId?: string
     level: string
 }

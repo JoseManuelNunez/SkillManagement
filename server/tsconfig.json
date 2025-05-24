@@ -15,7 +15,6 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "typeRoots": ["node_modules/@types", "src/types"],
-    "types": ["express"]
+    "typeRoots": ["./node_module/@types", "./src/types"]
   }
 }

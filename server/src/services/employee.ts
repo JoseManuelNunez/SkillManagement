@@ -2,13 +2,21 @@ import { DataSource, Repository } from "typeorm";
 import { EmployeeEntity } from "../entity/Employee";
 import bycrpt from "bcrypt";
 import { INewSkillEmployee } from "../@types/skill";
+import { EmployeeSkillEntity } from "../entity/EmployeeSkill";
+import { SkillEntity } from "../entity/Skill";
 
 
 export class EmployeeService {
     private static repository: Repository<EmployeeEntity>;
+    private static employeeSkillRepository: Repository<EmployeeSkillEntity>;
+    private static skillRepository: Repository<SkillEntity>;
+
+
 
     public static init(database: DataSource) {
         EmployeeService.repository = database.getRepository(EmployeeEntity);
+        EmployeeService.employeeSkillRepository = database.getRepository(EmployeeSkillEntity);
+        EmployeeService.skillRepository = database.getRepository(SkillEntity);
     }
 
     /**
@@ -59,16 +67,32 @@ export class EmployeeService {
   * @return {boolean}
   */
 
-    public async addNewEmployeeSkill(id: string, { skillId, level }: INewSkillEmployee): Promise<boolean> {
-
-        let employeeSkills;
+    public async addNewEmployeeSkill(newSkillEmployee: INewSkillEmployee): Promise<EmployeeSkillEntity> {
         try {
-            const employee = this.getEmployeeById(id);
-        } catch (error) {
-            console.log(error);
-            return false;
+
+            const { skillId, employeeId } = newSkillEmployee
+            const skill = await EmployeeService.skillRepository.findOne({ where: { name: skillId } })
+
+            const existingSkill = await EmployeeService.employeeSkillRepository.findOne({
+                where: {
+                    employeeId: employeeId,
+                    skillId: skill?.id
+                }
+            });
+
+            if (existingSkill) {
+                throw new Error("Employee already has this skill");
+            }
+
+            newSkillEmployee = {
+                ...newSkillEmployee, skillId: skill?.id
+            }
+
+            return await EmployeeService.employeeSkillRepository.save(newSkillEmployee);
+        } catch (error: any) {
+            throw new Error(error.message);
         }
-        return true
+
     }
 
     /**

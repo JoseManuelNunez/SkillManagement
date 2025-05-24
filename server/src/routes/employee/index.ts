@@ -3,13 +3,13 @@ import { Request, Response, Router } from "express";
 import { EmployeeService } from "../../services/employee";
 import { IEmployee } from "../../@types/employee";
 import { Config } from '../../config';
+import { INewSkillEmployee } from '../../@types/skill';
 
 const router = Router();
 
 // GET /employees
 router.get("/", async (req: Request, res: Response) => {
     try {
-
         const employeeService = new EmployeeService();
         const employees = await employeeService.getAllEmployees()
 
@@ -30,7 +30,6 @@ router.get("/:id", async (req: Request, res: Response) => {
 
         const employeeService = new EmployeeService();
         const employee = await employeeService.getEmployeeById(id);
-        console.log(employee)
 
         if (!employee) {
             res.status(404).json({ message: 'Employee not found' });
@@ -53,5 +52,32 @@ router.get("/:id", async (req: Request, res: Response) => {
         res.status(500).json({ message: 'Server error', error });
     }
 });
+
+router.put("/:id", async (req: Request, res: Response) => {
+    try {
+        const newSkills = req.body;
+        const { employee } = req.user;
+
+        const employeeService = new EmployeeService()
+
+        const employeeNewSkills: INewSkillEmployee = {
+            employeeId: employee.id,
+            skillId: newSkills.skillId,
+            level: newSkills.level
+        }
+
+        await employeeService.addNewEmployeeSkill(employeeNewSkills)
+
+        res.json(
+            `Buen trabajo${employee.name} a añadido correctamente la skill`
+        )
+
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
+    }
+
+})
 
 export default router;
