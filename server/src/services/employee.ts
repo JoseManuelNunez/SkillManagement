@@ -1,6 +1,7 @@
 import { DataSource, Repository } from "typeorm";
 import { EmployeeEntity } from "../entity/Employee";
 import bycrpt from "bcrypt";
+import { INewSkillEmployee } from "../@types/skill";
 
 
 export class EmployeeService {
@@ -52,6 +53,25 @@ export class EmployeeService {
     }
 
     /**
+  * addNewEmployeeSkill
+  * @param {string} id
+  * @param {INewSkillEmployee}
+  * @return {boolean}
+  */
+
+    public async addNewEmployeeSkill(id: string, { skillId, level }: INewSkillEmployee): Promise<boolean> {
+
+        let employeeSkills;
+        try {
+            const employee = this.getEmployeeById(id);
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
+        return true
+    }
+
+    /**
    * comparePassword
    * @param {string} password
    * @param {string} hashedPassword
@@ -62,7 +82,7 @@ export class EmployeeService {
         return await bycrpt.compare(password, hashedPassword);
     }
 
-    public async login(username: string, password: string): Promise<EmployeeEntity | null> {
+    public async login(username: string, password: string): Promise<EmployeeEntity> {
 
         // Instead of this use Zod
         if (!username || !password) {

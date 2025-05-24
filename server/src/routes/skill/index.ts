@@ -7,6 +7,7 @@ export async function skills(req: Request, res: Response) {
         res.send(await skillService.getAllSkills());
 
     } catch (error) {
+        console.log(error);
         res.status(400).send({ error });
     }
 

@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import { Config } from '../config';
 import { DataSource, Repository } from "typeorm";
 import { EmployeeEntity } from "../entity/Employee";
@@ -41,13 +42,13 @@ export class SeederService {
             }
 
             for (const employeeData of data.employees) {
-                console.log(employeeData)
+                const hashedPassword = await bcrypt.hash(employeeData.password, 10);
                 const employee = SeederService.employeeRepository.create({
                     id: employeeData.id,
                     name: employeeData.name,
                     position: employeeData.position,
                     role: employeeData.role,
-                    password: employeeData.password
+                    password: hashedPassword
                 });
                 await SeederService.employeeRepository.save(employee);
 

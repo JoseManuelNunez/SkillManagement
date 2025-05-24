@@ -1,7 +1,6 @@
 import {
     Entity, PrimaryColumn, Column, OneToMany,
 } from 'typeorm';
-import { hashSync } from 'bcryptjs';
 import { EmployeeSkillEntity } from './EmployeeSkill';
 
 @Entity()

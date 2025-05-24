@@ -7,6 +7,7 @@ export async function projects(req: Request, res: Response) {
         res.send(await projectService.getAllProjects());
 
     } catch (error) {
+        console.log(error)
         res.status(400).send({ error });
     }
 

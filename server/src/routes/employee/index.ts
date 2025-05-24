@@ -1,12 +1,15 @@
+import jwt from 'jsonwebtoken';
 import { Request, Response, Router } from "express";
 import { EmployeeService } from "../../services/employee";
 import { IEmployee } from "../../@types/employee";
+import { Config } from '../../config';
 
 const router = Router();
 
 // GET /employees
-router.get("/", async (_, res: Response) => {
+router.get("/", async (req: Request, res: Response) => {
     try {
+
         const employeeService = new EmployeeService();
         const employees = await employeeService.getAllEmployees()
 
@@ -46,6 +49,7 @@ router.get("/:id", async (req: Request, res: Response) => {
         })
 
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: 'Server error', error });
     }
 });

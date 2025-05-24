@@ -8,3 +8,5 @@ export interface IEmployee {
     role: "basic" | 'admin'
     skills: INewSkillEmployee[];
 }
+
+export type IPublicEmployee = Omit<IEmployee, 'id' | 'password'>;
