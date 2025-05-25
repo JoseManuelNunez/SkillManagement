@@ -2,7 +2,7 @@
 import { Application, Express, Response } from "express";
 import { login } from "./auth/login";
 import { skills } from "./skill";
-import { projects } from "./project";
+import projectsRouter from "./project";
 import employeesRouter from "./employee";
 import { authMiddleware } from "./auth/authMiddleware";
 import me from "./employee/me"
@@ -13,7 +13,7 @@ export default function setupRoutes(app: Application) {
     app.use("/me", authMiddleware, me)
 
     app.use("/employees", authMiddleware, employeesRouter);
-    app.use("/projects", authMiddleware, projects);
+    app.use("/projects", authMiddleware, projectsRouter);
     app.use("/skills", authMiddleware, skills);
 
 

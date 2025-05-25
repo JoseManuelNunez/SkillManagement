@@ -10,6 +10,7 @@ export interface IProject {
 
 }
 export interface INewSkillProject {
+    projectId?: string
     skillId: string
     level: string
 }

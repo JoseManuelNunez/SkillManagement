@@ -62,7 +62,6 @@ export class EmployeeService {
 
     /**
   * addNewEmployeeSkill
-  * @param {string} id
   * @param {INewSkillEmployee}
   * @return {boolean}
   */
