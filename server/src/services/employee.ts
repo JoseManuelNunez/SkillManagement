@@ -73,6 +73,8 @@ export class EmployeeService {
             const { skillId, employeeId } = newSkillEmployee
             const skill = await EmployeeService.skillRepository.findOne({ where: { name: skillId } })
 
+            if (!skill) throw new Error("Skill not found");
+
             const existingSkill = await EmployeeService.employeeSkillRepository.findOne({
                 where: {
                     employeeId: employeeId,
@@ -80,9 +82,7 @@ export class EmployeeService {
                 }
             });
 
-            if (existingSkill) {
-                throw new Error("Employee already has this skill");
-            }
+            if (existingSkill) throw new Error("Employee already has this skill");
 
             newSkillEmployee = {
                 ...newSkillEmployee, skillId: skill?.id

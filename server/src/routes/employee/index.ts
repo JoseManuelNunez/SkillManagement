@@ -1,8 +1,5 @@
-import jwt from 'jsonwebtoken';
 import { Request, Response, Router } from "express";
 import { EmployeeService } from "../../services/employee";
-import { IEmployee } from "../../@types/employee";
-import { Config } from '../../config';
 import { INewSkillEmployee } from '../../@types/skill';
 
 const router = Router();
@@ -53,7 +50,7 @@ router.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
-router.put("/:id", async (req: Request, res: Response) => {
+router.put("/", async (req: Request, res: Response) => {
     try {
         const newSkills = req.body;
         const { employee } = req.user;
@@ -69,7 +66,7 @@ router.put("/:id", async (req: Request, res: Response) => {
         await employeeService.addNewEmployeeSkill(employeeNewSkills)
 
         res.json(
-            `Buen trabajo${employee.name} a añadido correctamente la skill`
+            `Buen trabajo ${employee.name} a añadido correctamente la skill`
         )
 
     } catch (error: any) {
