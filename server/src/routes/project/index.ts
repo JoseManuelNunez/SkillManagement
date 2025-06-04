@@ -17,12 +17,11 @@ router.get("/", async (req: Request, res: Response) => {
     }
 });
 
-// PUT addNewSkillRequired
-router.put("/:id", async (req: Request, res: Response) => {
+// POST addNewSkillRequired
+router.post("/:id", async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const newSkills = req.body;
-        const { employee } = req.user;
 
         if (!newSkills) throw new Error("Ingresa una skill");
 
@@ -47,7 +46,28 @@ router.put("/:id", async (req: Request, res: Response) => {
             message: error.message || 'Server error',
         });
     }
-
 })
+
+// POST assignEmployees
+router.post("/:id/assign-employee", async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const { employeeId } = req.body;
+
+        const projectService = new ProjectService();
+        res.send(await projectService.addNewEmployeeInProject(employeeId, id));
+
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
+    }
+});
+
+
+
+
+
+
 
 export default router;

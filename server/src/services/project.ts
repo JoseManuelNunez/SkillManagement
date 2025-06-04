@@ -3,12 +3,15 @@ import { ProjectEntity } from "../entity/Project";
 import { ProjectSkillEntity } from "../entity/ProjectSkill";
 import { INewSkillProject } from "../@types/project";
 import { SkillEntity } from "../entity/Skill";
+import { EmployeeEntity } from "../entity/Employee";
 
 
 export class ProjectService {
     private static repository: Repository<ProjectEntity>;
     private static skillRepository: Repository<SkillEntity>;
     private static projectSkillRepository: Repository<ProjectSkillEntity>;
+    private static employeeRepository: Repository<EmployeeEntity>;
+
 
 
 
@@ -16,6 +19,8 @@ export class ProjectService {
         ProjectService.repository = database.getRepository(ProjectEntity);
         ProjectService.skillRepository = database.getRepository(SkillEntity);
         ProjectService.projectSkillRepository = database.getRepository(ProjectSkillEntity);
+        ProjectService.employeeRepository = database.getRepository(EmployeeEntity);
+
     }
 
     /**
@@ -82,6 +87,45 @@ export class ProjectService {
         } catch (error: any) {
             throw new Error(error.message);
         }
+    }
 
+    /**
+   * addNewSkillRequired
+   * @param {string} idEmployee
+   * @param {string} idProject
+   * @return {ProjectEntity}
+   */
+
+    public async addNewEmployeeInProject(idEmployee: string, idProject: string,): Promise<ProjectEntity> {
+        try {
+
+            const project = await ProjectService.repository.findOne({
+                where: { id: idProject },
+                relations: ['assignedEmployees'],
+            });
+
+            if (!project) {
+                throw new Error('Project not found');
+            }
+
+            const employee = await ProjectService.employeeRepository.findOne({
+                where: { id: idEmployee },
+            });
+
+            if (!employee) {
+                throw new Error('Employee not found');
+            }
+
+            const alreadyAssigned = project.assignedEmployees.some(
+                (e) => e.id === idEmployee,
+            );
+
+            if (alreadyAssigned) throw new Error('Employee is already assigned to this project');
+
+            project.assignedEmployees.push(employee);
+            return await ProjectService.repository.save(project);
+        } catch (error: any) {
+            throw new Error(error.message);
+        }
     }
 }
