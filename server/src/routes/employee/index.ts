@@ -50,7 +50,7 @@ router.get("/:id", async (req: Request, res: Response) => {
     }
 });
 
-router.put("/", async (req: Request, res: Response) => {
+router.post("/add-skill", async (req: Request, res: Response) => {
     try {
         const newSkills = req.body;
         const { employee } = req.user;
@@ -74,7 +74,21 @@ router.put("/", async (req: Request, res: Response) => {
             message: error.message || 'Server error',
         });
     }
-
 })
 
+// DELETE removeEmployeeSkill
+router.delete("/remove-skill/:id", async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const { skillId } = req.body;
+
+        const projectService = new EmployeeService();
+        res.send(await projectService.removeEmployeeSkill(id, skillId));
+
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
+    }
+});
 export default router;

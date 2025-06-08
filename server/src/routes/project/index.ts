@@ -66,7 +66,7 @@ router.post("/:id/assign-employee", async (req: Request, res: Response) => {
 
 
 // POST removeEmployees
-router.post("/:id/remove-employee", async (req: Request, res: Response) => {
+router.delete("/remove-employee/:id", async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const { employeeId } = req.body;

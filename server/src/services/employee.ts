@@ -94,6 +94,32 @@ export class EmployeeService {
 
     }
 
+    public async removeEmployeeSkill(employeeId: string, skillId: string,): Promise<EmployeeSkillEntity> {
+        try {
+
+            const employee = await EmployeeService.repository.findOne({
+                where: { id: employeeId },
+                relations: ['skills'],
+            });
+
+            if (!employee) {
+                throw new Error('Employee not found');
+            }
+
+            const skillToRemove = employee.skills.find((s) => s.skillId === skillId);
+
+            if (!skillToRemove) {
+                throw new Error('Skill not assigned to this employee');
+            }
+
+            return await EmployeeService.employeeSkillRepository.save(skillToRemove);
+
+        } catch (error: any) {
+            throw new Error(error.message);
+        }
+    }
+
+
     /**
    * comparePassword
    * @param {string} password
@@ -107,7 +133,7 @@ export class EmployeeService {
 
     public async login(username: string, password: string): Promise<EmployeeEntity> {
 
-        // Instead of this use Zod
+        // REMEMBER TO USE ZOD instead of this validations
         if (!username || !password) {
             throw new Error("Username and password are required");
         }
@@ -124,4 +150,5 @@ export class EmployeeService {
 
         return employee;
     }
+
 }

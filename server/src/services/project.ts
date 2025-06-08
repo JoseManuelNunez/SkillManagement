@@ -136,10 +136,7 @@ export class ProjectService {
   * @return {ProjectEntity}
   */
 
-    public async removeEmployeeInProject(
-        idEmployee: string,
-        idProject: string,
-    ): Promise<ProjectEntity> {
+    public async removeEmployeeInProject(idEmployee: string, idProject: string,): Promise<ProjectEntity> {
         const project = await ProjectService.repository.findOne({
             where: { id: idProject },
             relations: ['assignedEmployees'],
