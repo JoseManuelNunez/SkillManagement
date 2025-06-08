@@ -65,6 +65,23 @@ router.post("/:id/assign-employee", async (req: Request, res: Response) => {
 });
 
 
+// POST removeEmployees
+router.post("/:id/remove-employee", async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const { employeeId } = req.body;
+
+        const projectService = new ProjectService();
+        res.send(await projectService.removeEmployeeInProject(employeeId, id));
+
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
+    }
+});
+
+
 
 
 

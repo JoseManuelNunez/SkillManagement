@@ -128,4 +128,37 @@ export class ProjectService {
             throw new Error(error.message);
         }
     }
+
+    /**
+  * removeEmployeeInProject
+  * @param {string} idEmployee
+  * @param {string} idProject
+  * @return {ProjectEntity}
+  */
+
+    public async removeEmployeeInProject(
+        idEmployee: string,
+        idProject: string,
+    ): Promise<ProjectEntity> {
+        const project = await ProjectService.repository.findOne({
+            where: { id: idProject },
+            relations: ['assignedEmployees'],
+        });
+
+        if (!project) {
+            throw new Error('Project not found');
+        }
+
+        const employeeIndex = project.assignedEmployees.findIndex(
+            (e) => e.id === idEmployee,
+        );
+
+        if (employeeIndex === -1) {
+            throw new Error('Employee is not assigned to this project');
+        }
+
+        project.assignedEmployees.splice(employeeIndex, 1);
+
+        return await ProjectService.repository.save(project);
+    }
 }
