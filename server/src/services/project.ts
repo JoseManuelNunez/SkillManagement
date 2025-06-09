@@ -220,4 +220,31 @@ export class ProjectService {
 
         return await ProjectService.repository.save(project);
     }
+
+    /**
+ * changeProjectStatus
+ * @param {string} id
+ * @param {string} status
+ * @returns {ProjectEntity}
+ */
+    public async changeProjectStatus(id: string, status: string): Promise<ProjectEntity> {
+        try {
+            const project = await ProjectService.repository.findOne({ where: { id } });
+
+            if (!project) {
+                throw new Error('Project not found');
+            }
+
+            const allowedStatuses = ['Listo', 'bloqueado', 'desarrollo'];
+            if (!allowedStatuses.includes(status)) {
+                throw new Error('Invalid project status');
+            }
+
+            project.status = status;
+
+            return await ProjectService.repository.save(project);
+        } catch (error: any) {
+            throw new Error(error.message);
+        }
+    }
 }

@@ -115,4 +115,21 @@ router.delete("/remove-employee/:id", async (req: Request, res: Response) => {
     }
 });
 
+
+// POST change project status
+router.post("/status/:id", async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const { status } = req.body;
+
+        const projectService = new ProjectService();
+        res.send(await projectService.changeProjectStatus(id, status));
+
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
+    }
+});
+
 export default router;
