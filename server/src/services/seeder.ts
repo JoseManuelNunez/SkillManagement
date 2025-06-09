@@ -34,7 +34,6 @@ export class SeederService {
 
             for (const skillData of data.skills) {
                 const skill = SeederService.skillRepository.create({
-                    id: skillData.id,
                     name: skillData.name,
                     description: skillData.description
                 });
@@ -55,7 +54,6 @@ export class SeederService {
                 for (const skill of employeeData.skills) {
                     const employeeSkill = SeederService.employeeSkillRepository.create({
                         employeeId: employee.id,
-                        skillId: skill.skillId,
                         level: skill.level
                     });
                     await SeederService.employeeSkillRepository.save(employeeSkill);
@@ -74,7 +72,6 @@ export class SeederService {
                 for (const requiredSkill of projectData.requiredSkills) {
                     const projectSkill = SeederService.projectSkillRepository.create({
                         projectId: projectData.id,
-                        skillId: requiredSkill.skillId,
                         level: requiredSkill.level
                     });
                     await SeederService.projectSkillRepository.save(projectSkill);

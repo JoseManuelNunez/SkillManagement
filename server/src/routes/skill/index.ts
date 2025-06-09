@@ -1,14 +1,36 @@
-import { Request, Response } from "express";
+import { Request, Response, Router } from "express";
 import { SkillService } from "../../services/skill";
+import { INewSkill } from "../../@types/skill";
 
-export async function skills(req: Request, res: Response) {
+
+const router = Router();
+
+// GET /skills
+router.get("/", async (_, res: Response) => {
     try {
         const skillService = new SkillService();
         res.send(await skillService.getAllSkills());
 
-    } catch (error) {
-        console.log(error);
-        res.status(400).send({ error });
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
     }
+});
 
-}
+// POST /skills
+router.post("/", async (req: Request, res: Response) => {
+    try {
+
+        const newSkills: INewSkill = req.body;
+        const skillService = new SkillService();
+        res.send(await skillService.createNewSkill(newSkills));
+
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
+    }
+});
+
+export default router;

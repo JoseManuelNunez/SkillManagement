@@ -12,14 +12,14 @@ export class EmployeeSkillEntity {
     @Column({ type: 'integer' })
     employeeId!: string;
 
-    @Column({ type: 'integer' })
+    @Column({ type: 'integer', nullable: true })
     skillId!: string;
 
     @ManyToOne(() => EmployeeEntity, (e) => e.skills, { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'employeeId' })
     employee!: EmployeeEntity;
 
-    @ManyToOne(() => SkillEntity, { onDelete: 'CASCADE' })
+    @ManyToOne(() => SkillEntity, { onDelete: 'CASCADE', nullable: true })
     @JoinColumn({ name: 'skillId' })
     skill!: SkillEntity;
 

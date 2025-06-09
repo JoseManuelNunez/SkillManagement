@@ -15,8 +15,10 @@ router.get("/", async (req: Request, res: Response) => {
         }
 
         res.send(employees);
-    } catch (error) {
-        res.status(400).send({ error });
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
     }
 });
 

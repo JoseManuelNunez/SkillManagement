@@ -11,9 +11,10 @@ router.get("/", async (req: Request, res: Response) => {
         const projectService = new ProjectService();
         res.send(await projectService.getAllProjects());
 
-    } catch (error) {
-        console.log(error)
-        res.status(400).send({ error });
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
     }
 });
 
@@ -98,11 +99,5 @@ router.delete("/remove-employee/:id", async (req: Request, res: Response) => {
         });
     }
 });
-
-
-
-
-
-
 
 export default router;

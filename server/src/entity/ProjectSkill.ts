@@ -12,16 +12,16 @@ export class ProjectSkillEntity {
     @Column({ type: 'integer' })
     projectId!: string;
 
-    @Column({ type: 'integer' })
+    @Column({ type: 'integer', nullable: true })
     skillId!: string;
 
     @ManyToOne(() => ProjectEntity, (p) => p.requiredSkills, { onDelete: 'CASCADE' })
     @JoinColumn({ name: 'projectId' })
-    project!: ProjectEntity;
+    project: ProjectEntity;
 
-    @ManyToOne(() => SkillEntity, { onDelete: 'CASCADE' })
+    @ManyToOne(() => SkillEntity, { onDelete: 'CASCADE', nullable: true })
     @JoinColumn({ name: 'skillId' })
-    skill!: SkillEntity;
+    skill: SkillEntity;
 
     @Column()
     level!: string;

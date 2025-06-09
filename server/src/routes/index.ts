@@ -1,9 +1,9 @@
 
 import { Application, Express, Response } from "express";
 import { login } from "./auth/login";
-import { skills } from "./skill";
 import projectsRouter from "./project";
 import employeesRouter from "./employee";
+import skillsRouter from "./skill";
 import { authMiddleware } from "./auth/authMiddleware";
 import me from "./employee/me"
 
@@ -14,7 +14,7 @@ export default function setupRoutes(app: Application) {
 
     app.use("/employees", authMiddleware, employeesRouter);
     app.use("/projects", authMiddleware, projectsRouter);
-    app.use("/skills", authMiddleware, skills);
+    app.use("/skills", authMiddleware, skillsRouter);
 
 
 }

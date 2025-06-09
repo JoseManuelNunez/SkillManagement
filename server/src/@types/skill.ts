@@ -9,3 +9,5 @@ export interface INewSkillEmployee {
     skillId?: string
     level: string
 }
+
+export type INewSkill = Omit<ISkill, 'id'>;
