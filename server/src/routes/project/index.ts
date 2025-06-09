@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
 import { ProjectService } from "../../services/project";
-import { INewSkillProject } from "../../@types/project";
+import { INewProject, INewSkillProject } from "../../@types/project";
 
 
 const router = Router();
@@ -10,6 +10,21 @@ router.get("/", async (req: Request, res: Response) => {
     try {
         const projectService = new ProjectService();
         res.send(await projectService.getAllProjects());
+
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
+    }
+});
+
+// POST / create project
+router.post("/", async (req: Request, res: Response) => {
+    try {
+
+        const newProject: INewProject = req.body;
+        const projectService = new ProjectService();
+        res.send(await projectService.createNewProject(newProject));
 
     } catch (error: any) {
         res.status(400).json({

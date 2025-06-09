@@ -18,13 +18,13 @@ router.get("/", async (_, res: Response) => {
     }
 });
 
-// POST /skills
+// POST / create skills
 router.post("/", async (req: Request, res: Response) => {
     try {
 
-        const newSkills: INewSkill = req.body;
+        const newSkill: INewSkill = req.body;
         const skillService = new SkillService();
-        res.send(await skillService.createNewSkill(newSkills));
+        res.send(await skillService.createNewSkill(newSkill));
 
     } catch (error: any) {
         res.status(400).json({

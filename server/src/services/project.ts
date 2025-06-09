@@ -1,7 +1,7 @@
 import { DataSource, IsNull, Not, Repository } from "typeorm";
 import { ProjectEntity } from "../entity/Project";
 import { ProjectSkillEntity } from "../entity/ProjectSkill";
-import { INewSkillProject } from "../@types/project";
+import { INewProject, INewSkillProject } from "../@types/project";
 import { SkillEntity } from "../entity/Skill";
 import { EmployeeEntity } from "../entity/Employee";
 
@@ -53,6 +53,35 @@ export class ProjectService {
             where: { id },
             relations: ['requiredSkills', 'assignedEmployees'],
         });
+    }
+
+    /**
+     * createNewProject
+     * @param {INewProject} project
+     * @returns {ProjectEntity}
+    */
+    public async createNewProject(project: INewProject): Promise<ProjectEntity> {
+        try {
+            const existing = await ProjectService.repository.findOne({
+                where: { name: project.name }
+            });
+
+            if (existing) {
+                throw new Error("Project already exists");
+            }
+
+            const newProject = ProjectService.repository.create({
+                name: project.name,
+                description: project.description,
+                status: 'desarrollo',
+                requiredSkills: [],
+                assignedEmployees: [],
+            });
+
+            return await ProjectService.repository.save(newProject);
+        } catch (error: any) {
+            throw new Error(error.message);
+        }
     }
 
     /**

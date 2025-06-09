@@ -9,13 +9,13 @@ export class ProjectSkillEntity {
     @PrimaryGeneratedColumn()
     id!: string;
 
-    @Column({ type: 'integer' })
-    projectId!: string;
+    @Column({ type: 'integer', nullable: true })
+    projectId: string;
 
     @Column({ type: 'integer', nullable: true })
-    skillId!: string;
+    skillId: string;
 
-    @ManyToOne(() => ProjectEntity, (p) => p.requiredSkills, { onDelete: 'CASCADE' })
+    @ManyToOne(() => ProjectEntity, (p) => p.requiredSkills, { onDelete: 'CASCADE', nullable: true })
     @JoinColumn({ name: 'projectId' })
     project: ProjectEntity;
 

@@ -1,12 +1,10 @@
-import {
-    Entity, PrimaryColumn, Column, OneToMany, ManyToMany, JoinTable,
-} from 'typeorm';
+import { Entity, Column, OneToMany, ManyToMany, JoinTable, PrimaryGeneratedColumn, } from 'typeorm';
 import { ProjectSkillEntity } from './ProjectSkill';
 import { EmployeeEntity } from './Employee';
 
 @Entity()
 export class ProjectEntity {
-    @PrimaryColumn()
+    @PrimaryGeneratedColumn("uuid")
     id!: string;
 
     @Column()

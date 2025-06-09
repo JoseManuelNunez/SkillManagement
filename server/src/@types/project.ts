@@ -4,9 +4,9 @@ export interface IProject {
     id: string
     name: string
     description: string
-    requiredSkills: INewSkillEmployee[]
-    assignedEmployees: string[]
-    estado: string
+    requiredSkills?: INewSkillEmployee[]
+    assignedEmployees?: string[]
+    status?: string
 
 }
 export interface INewSkillProject {
@@ -14,3 +14,5 @@ export interface INewSkillProject {
     skillId: string
     level: string
 }
+
+export type INewProject = Omit<IProject, 'id'>
