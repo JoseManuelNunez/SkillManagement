@@ -94,6 +94,13 @@ export class EmployeeService {
 
     }
 
+    /**
+      * removeEmployeeSkill
+      * @param {string} employeeId
+      * @param {string} skillId
+      * @return {EmployeeSkillEntity}
+    */
+
     public async removeEmployeeSkill(employeeId: string, skillId: string,): Promise<EmployeeSkillEntity> {
         try {
 

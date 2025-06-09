@@ -90,6 +90,39 @@ export class ProjectService {
     }
 
     /**
+     * removeSkillRequired
+     * @param {projectId} projectId
+     * @param {string} skillId
+     * @returns {ProjectSkillEntity}
+    */
+    public async removeSkillRequired(projectId: string, skillId: string,): Promise<ProjectSkillEntity> {
+        try {
+            console.log(projectId)
+            console.log(skillId);
+            const skill = await ProjectService.skillRepository.findOne({
+                where: { name: skillId }
+            });
+            console.log(skill)
+
+            if (!skill) throw new Error("Skill not found");
+
+            const existingSkill = await ProjectService.projectSkillRepository.findOne({
+                where: {
+                    projectId: projectId,
+                    skillId: skill.id
+                }
+            });
+
+            if (!existingSkill) throw new Error("Skill is not assigned to this project");
+
+            return await ProjectService.projectSkillRepository.remove(existingSkill);
+        } catch (error: any) {
+            throw new Error(error.message);
+        }
+    }
+
+
+    /**
    * addNewSkillRequired
    * @param {string} idEmployee
    * @param {string} idProject

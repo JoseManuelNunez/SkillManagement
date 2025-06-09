@@ -18,7 +18,7 @@ router.get("/", async (req: Request, res: Response) => {
 });
 
 // POST addNewSkillRequired
-router.post("/:id", async (req: Request, res: Response) => {
+router.post("/add-skill/:id", async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const newSkills = req.body;
@@ -48,8 +48,26 @@ router.post("/:id", async (req: Request, res: Response) => {
     }
 })
 
+// POST removeSkillRequired
+router.post("/remove-skill/:id", async (req: Request, res: Response) => {
+    try {
+        const { id } = req.params;
+        const { skillId } = req.body;
+
+        if (!skillId) throw new Error("Ingresa una skill");
+
+        const projectService = new ProjectService()
+        res.send(await projectService.removeSkillRequired(id, skillId))
+
+    } catch (error: any) {
+        res.status(400).json({
+            message: error.message || 'Server error',
+        });
+    }
+})
+
 // POST assignEmployees
-router.post("/:id/assign-employee", async (req: Request, res: Response) => {
+router.post("/assign-employee/:id", async (req: Request, res: Response) => {
     try {
         const { id } = req.params;
         const { employeeId } = req.body;
